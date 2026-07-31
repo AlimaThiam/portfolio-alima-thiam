@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sophie Martin | Technicienne Supérieure en Informatique de Gestion</title>
+    <meta name="description" content="Portfolio professionnel de Sophie Martin, Technicienne Supérieure en Informatique de Gestion. Spécialisée en développement d'applications, bases de données SQL et Business Intelligence (Power BI).">
+    
+    <!-- Polices Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Boxicons (Icônes) -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    
+    <!-- Feuille de style principale -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Barre de Navigation -->
+    <header class="header">
+        <a href="#home" class="logo">
+            <span class="logo-icon"><i class='bx bx-code-alt'></i></span>
+            Sophie.<span>M</span>
+        </a>
+        
+        <nav class="navbar">
+            <a href="#home" class="nav-link active">Accueil</a>
+            <a href="#about" class="nav-link">À propos</a>
+            <a href="#skills" class="nav-link">Compétences</a>
+            <a href="#projects" class="nav-link">Projets</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+            <!-- Bouton Thème Sombre/Clair -->
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Changer de thème">
+                <i class='bx bx-moon moon-icon'></i>
+                <i class='bx bx-sun sun-icon'></i>
+            </button>
+            
+            <!-- Menu Hamburger Mobile -->
+            <button id="menu-btn" class="menu-btn" aria-label="Ouvrir le menu">
+                <i class='bx bx-menu'></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Section Hero -->
+    <section class="hero-section" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-subtitle">Bienvenue sur mon portfolio</span>
+                <h1 class="hero-title">Sophie Martin</h1>
+                <h2 class="hero-typing">
+                    <span class="typing-text"></span><span class="typed-cursor">|</span>
+                </h2>
+                <p class="hero-description">
+                    Spécialisée dans la conception de solutions applicatives performantes, la modélisation de bases de données relationnelles et la mise en place de tableaux de bord décisionnels pour aider les entreprises à piloter leur activité.
+                </p>
+                <div class="hero-ctas">
+                    <a href="#contact" class="btn btn-primary">Me contacter <i class='bx bx-envelope'></i></a>
+                    <a href="#" class="btn btn-secondary" id="cv-download">Télécharger mon CV <i class='bx bx-download'></i></a>
+                </div>
+            </div>
+            
+            <div class="hero-image-wrapper">
+                <div class="hero-image-bg"></div>
+                <div class="hero-image-card">
+                    <!-- Image de profil générée par IA ou placeholder stylisé -->
+                    <img src="assets/profile.jpg" alt="Sophie Martin" id="profile-img" class="profile-img">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Défilement vers le bas -->
+        <a href="#about" class="scroll-down" aria-label="Faire défiler vers le bas">
+            <i class='bx bx-chevron-down'></i>
+        </a>
+    </section>
+
+    <!-- Section À Propos -->
+    <section class="about-section section" id="about">
+        <div class="section-container">
+            <h2 class="section-title">À Propos De <span>Moi</span></h2>
+            <div class="underline"></div>
+            
+            <div class="about-grid">
+                <div class="about-info">
+                    <h3>Qui suis-je ?</h3>
+                    <p>
+                        Récemment diplômée comme <strong>Technicienne Supérieure en Informatique de Gestion</strong>, je combine des compétences en développement logiciel et en gestion d'entreprise. Mon rôle est de faire le pont entre les besoins fonctionnels des métiers et les solutions techniques.
+                    </p>
+                    <p>
+                        Rigoureuse, curieuse et orientée résultats, j'aime analyser des processus complexes pour concevoir des bases de données optimisées, développer des applications sur-mesure ou concevoir des tableaux de bord d'analyse de données (Business Intelligence) pour guider les décisions stratégiques.
+                    </p>
+                    <div class="personal-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Recherche :</span>
+                            <span class="detail-val">Stage / Consultance / Emploi</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Disponibilité :</span>
+                            <span class="detail-val">Immédiate</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Localisation :</span>
+                            <span class="detail-val">France (Mobile / Télétravail)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-timeline">
+                    <h3>Mon Parcours</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2024 - 2026</div>
+                            <h4 class="timeline-title">BTS Services Informatiques aux Organisations (SIO)</h4>
+                            <p class="timeline-desc">Option SLAM (Solutions Logicielles et Applications Métiers). Apprentissage du développement, modélisation de bases de données (SQL, Mérise) et gestion de projet.</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2025</div>
+                            <h4 class="timeline-title">Stage en Analyse de Données & BI</h4>
+                            <p class="timeline-desc">Optimisation de requêtes SQL complexes et développement de rapports Power BI pour le suivi des stocks et ventes d'une PME locale.</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2023</div>
+                            <h4 class="timeline-title">Baccalauréat Technologique</h4>
+                            <p class="timeline-desc">Spécialité Sciences et Technologies du Management et de la Gestion (STMG) - Option Systèmes d'Information de Gestion.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Compétences (Skills) -->
+    <section class="skills-section section" id="skills">
+        <div class="section-container">
+            <h2 class="section-title">Mes <span>Compétences</span></h2>
+            <div class="underline"></div>
+            
+            <div class="skills-grid">
+                <!-- Bloc 1 : Développement -->
+                <div class="skills-card">
+                    <div class="skills-icon-header">
+                        <i class='bx bx-code-block'></i>
+                    </div>
+                    <h3>Développement & Applicatif</h3>
+                    <ul class="skills-list">
+                        <li>
+                            <span class="skill-name">C# / .NET Core</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">PHP / Laravel</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">JavaScript / HTML / CSS</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Python (Scripts / Data)</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Bloc 2 : Données & BI -->
+                <div class="skills-card">
+                    <div class="skills-icon-header">
+                        <i class='bx bx-data'></i>
+                    </div>
+                    <h3>Gestion de Données & BI</h3>
+                    <ul class="skills-list">
+                        <li>
+                            <span class="skill-name">SQL (MySQL, Server, Postgres)</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Modélisation (UML, Mérise)</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Power BI (Rapports & DAX)</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Analyse de données (Excel / ETL)</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Bloc 3 : Systèmes & Outils -->
+                <div class="skills-card">
+                    <div class="skills-icon-header">
+                        <i class='bx bx-cog'></i>
+                    </div>
+                    <h3>Systèmes, ERP & Outils</h3>
+                    <ul class="skills-list">
+                        <li>
+                            <span class="skill-name">Git / GitHub / GitLab</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Linux / Windows Server</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">ERP (Odoo / SAP)</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Méthodologies Agiles / Scrum</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Projets -->
+    <section class="projects-section section" id="projects">
+        <div class="section-container">
+            <h2 class="section-title">Mes <span>Projets</span> Réalisés</h2>
+            <div class="underline"></div>
+            
+            <!-- Boutons de filtrage -->
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="dev">Développement</button>
+                <button class="filter-btn" data-filter="data">Données & BI</button>
+            </div>
+            
+            <!-- Grille de Projets -->
+            <div class="projects-grid">
+                
+                <!-- Projet 1 -->
+                <div class="project-card" data-category="dev" data-project-id="1">
+                    <div class="project-img-container">
+                        <img src="assets/project1.jpg" alt="E-Stock Manager" class="project-img">
+                        <div class="project-overlay">
+                            <span class="view-details-btn">Voir les détails <i class='bx bx-plus-circle'></i></span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-tag">PHP / Laravel / MySQL</span>
+                        <h3>E-Stock Manager</h3>
+                        <p>Application web de gestion d'inventaire, facturation et suivi de commandes fournisseurs pour une PME...</p>
+                    </div>
+                </div>
+                
+                <!-- Projet 2 -->
+                <div class="project-card" data-category="dev" data-project-id="2">
+                    <div class="project-img-container">
+                        <img src="assets/project2.jpg" alt="PortalRH" class="project-img">
+                        <div class="project-overlay">
+                            <span class="view-details-btn">Voir les détails <i class='bx bx-plus-circle'></i></span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-tag">C# / .NET Core / SQL Server</span>
+                        <h3>PortalRH</h3>
+                        <p>Portail collaboratif RH de demande de congés et suivi de notes de frais avec workflow de validation...</p>
+                    </div>
+                </div>
+                
+                <!-- Projet 3 -->
+                <div class="project-card" data-category="data" data-project-id="3">
+                    <div class="project-img-container">
+                        <img src="assets/project3.jpg" alt="Dashboard BI Ventes" class="project-img">
+                        <div class="project-overlay">
+                            <span class="view-details-btn">Voir les détails <i class='bx bx-plus-circle'></i></span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-tag">Power BI / SQL Server / DAX</span>
+                        <h3>Sales Analytics Dashboard</h3>
+                        <p>Tableau de bord BI de suivi de ventes, revenus et prévisions régionales à partir de bases relationnelles...</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section class="contact-section section" id="contact">
+        <div class="section-container">
+            <h2 class="section-title">Me <span>Contacter</span></h2>
+            <div class="underline"></div>
+            
+            <div class="contact-grid">
+                <!-- Infos de contact -->
+                <div class="contact-info">
+                    <h3>Parlons de vos besoins</h3>
+                    <p>Vous êtes à la recherche d'une collaboratrice pour concevoir une application de gestion, administrer vos bases de données ou optimiser vos processus d'affaires ? N'hésitez pas à me contacter.</p>
+                    
+                    <div class="contact-cards">
+                        <div class="contact-card">
+                            <i class='bx bx-envelope'></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p><a href="mailto:sophie.martin@example.com">sophie.martin@example.com</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <i class='bx bx-phone'></i>
+                            <div>
+                                <h4>Téléphone</h4>
+                                <p><a href="tel:+33612345678">+33 6 12 34 56 78</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <i class='bx bx-map'></i>
+                            <div>
+                                <h4>Localisation</h4>
+                                <p>Paris / Île-de-France (Télétravail accepté)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://github.com" target="_blank" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class='bx bxl-linkedin-square'></i></a>
+                    </div>
+                </div>
+                
+                <!-- Formulaire de contact -->
+                <div class="contact-form-container">
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group-row">
+                            <div class="form-group">
+                                <label for="name">Nom / Entreprise</label>
+                                <input type="text" id="name" required placeholder="Votre nom ou entreprise">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Adresse Email</label>
+                                <input type="email" id="email" required placeholder="nom@exemple.com">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Objet</label>
+                            <input type="text" id="subject" required placeholder="Le motif de votre message">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" required placeholder="Votre message détaillé..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            Envoyer le message <i class='bx bx-paper-plane'></i>
+                        </button>
+                        
+                        <div id="form-status" class="form-status"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer class="footer">
+        <p>&copy; 2026 Sophie Martin. Tous droits réservés. Conçu avec passion pour l'informatique de gestion.</p>
+    </footer>
+
+    <!-- Conteneur de la Modale Interactive de Projet -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content glass">
+            <span class="close-modal"><i class='bx bx-x'></i></span>
+            <div class="modal-grid">
+                <div class="modal-img-wrapper">
+                    <img src="" alt="" id="modal-project-img" class="modal-project-img">
+                </div>
+                <div class="modal-details">
+                    <span class="modal-project-tag" id="modal-project-tag"></span>
+                    <h3 id="modal-project-title"></h3>
+                    
+                    <div class="modal-section">
+                        <h4>Description</h4>
+                        <p id="modal-project-description"></p>
+                    </div>
+                    
+                    <div class="modal-section">
+                        <h4>Fonctionnalités clés</h4>
+                        <ul id="modal-project-features" class="modal-list">
+                            <!-- Rempli par JavaScript -->
+                        </ul>
+                    </div>
+                    
+                    <div class="modal-section">
+                        <h4>Technologies & Outils</h4>
+                        <div id="modal-project-techs" class="modal-tech-tags">
+                            <!-- Rempli par JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="modal-actions" id="modal-project-links">
+                        <!-- Rempli par JavaScript (Boutons démo, GitHub, etc.) -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
