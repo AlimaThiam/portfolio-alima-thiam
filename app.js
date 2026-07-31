@@ -89,6 +89,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 link.classList.add("active");
             }
         });
+
+        // Fermer le menu mobile au défilement
+        if (navbar.classList.contains("active")) {
+            navbar.classList.remove("active");
+            if (menuBtn) {
+                const icon = menuBtn.querySelector("i");
+                icon.classList.replace("bx-x", "bx-menu");
+            }
+        }
     });
 
     // 2. TOGGLE NAVIGATION MENU (MOBILE)

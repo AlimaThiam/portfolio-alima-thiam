@@ -1155,7 +1155,9 @@ img {
         top: -100%;
         left: 0;
         width: 100%;
-        background: var(--bg-secondary);
+        background: var(--bg-glass);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
         border-bottom: 1px solid var(--border-glass);
         flex-direction: column;
         padding: 40px 5%;
