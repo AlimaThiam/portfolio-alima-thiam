@@ -1146,6 +1146,20 @@ img {
 }
 
 @media (max-width: 768px) {
+    .header {
+        position: absolute;
+        padding: 15px 5%;
+    }
+    
+    .header.sticky {
+        position: absolute;
+        background: transparent;
+        box-shadow: none;
+        border-bottom: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
     .menu-btn {
         display: block;
     }
