@@ -61,6 +61,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
     scroll-behavior: smooth;
 }
 
@@ -391,47 +394,6 @@ img {
     gap: 20px;
 }
 
-.hero-image-wrapper {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-image-bg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: var(--accent-gradient);
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    filter: blur(35px);
-    opacity: 0.25;
-    animation: morph 8s ease-in-out infinite;
-    z-index: 1;
-}
-
-.hero-image-card {
-    position: relative;
-    width: 320px;
-    height: 320px;
-    border-radius: 24px;
-    overflow: hidden;
-    border: 2px solid var(--border-glass);
-    box-shadow: var(--shadow-lg);
-    z-index: 2;
-    background: var(--bg-secondary);
-}
-
-.profile-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform var(--transition-slow);
-}
-
-.hero-image-card:hover .profile-img {
-    transform: scale(1.05);
-}
 
 .scroll-down {
     position: absolute;
@@ -554,6 +516,80 @@ img {
 .timeline-desc {
     font-size: 0.95rem;
     color: var(--text-secondary);
+}
+
+.timeline-company {
+    color: var(--accent-primary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+/* Bloc Langues & Engagements */
+.about-extra-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+    border-top: 1px solid var(--border-glass);
+    padding-top: 40px;
+}
+
+.extra-card-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+.extra-card-icon {
+    color: var(--accent-primary);
+    margin-right: 10px;
+    font-size: 1.6rem;
+    vertical-align: middle;
+}
+
+.extra-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.extra-list-item {
+    display: flex;
+    gap: 10px;
+    align-items: start;
+}
+
+.extra-check-icon {
+    color: var(--accent-primary);
+    margin-top: 4px;
+    font-size: 1.2rem;
+}
+
+.extra-list-text {
+    color: var(--text-secondary);
+}
+
+.lang-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed var(--border-glass);
+    padding-bottom: 8px;
+}
+
+.lang-name {
+    color: var(--text-primary);
+}
+
+.lang-badge {
+    border: 1px solid var(--accent-primary);
+    color: var(--accent-primary);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
 }
 
 /* ==========================================================================
@@ -1103,11 +1139,7 @@ img {
     50% { opacity: 0; }
 }
 
-@keyframes morph {
-    0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-    50% { border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%; }
-    100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-}
+
 
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
@@ -1120,8 +1152,6 @@ img {
    ========================================================================== */
 @media (max-width: 992px) {
     .hero-container {
-        grid-template-columns: 1fr;
-        gap: 50px;
         text-align: center;
     }
     

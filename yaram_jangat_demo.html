@@ -7,17 +7,17 @@
     <!-- Boxicons -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0b0f19;
+            --bg-main: #0b0f19;
             --bg-secondary: #111827;
             --bg-tertiary: #1f2937;
             --accent: #3b82f6;
             --accent-glow: rgba(59, 130, 246, 0.15);
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
-            --border-color: rgba(255, 255, 255, 0.08);
+            --border-color: #1f2937;
             --transition-speed: 0.3s;
         }
 
@@ -28,8 +28,8 @@
         }
 
         body {
-            font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-primary);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
             color: var(--text-main);
             min-height: 100vh;
             overflow-x: hidden;
@@ -37,11 +37,10 @@
         }
 
         header {
-            padding: 40px 20px 20px;
+            padding: 20px 0;
             text-align: center;
             border-bottom: 1px solid var(--border-color);
-            background: linear-gradient(180deg, rgba(17, 24, 39, 0.6) 0%, rgba(11, 15, 25, 0) 100%);
-            backdrop-filter: blur(10px);
+            background: var(--bg-secondary);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -55,6 +54,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 20px;
+            padding: 0 20px;
         }
 
         .logo-area {
@@ -62,7 +62,7 @@
         }
 
         .logo-area h1 {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 800;
             background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
             -webkit-background-clip: text;
@@ -80,22 +80,20 @@
             align-items: center;
             gap: 8px;
             padding: 12px 24px;
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 50px;
+            background-color: var(--border-color);
+            border: 1px solid transparent;
+            border-radius: 8px;
             color: var(--text-main);
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
             transition: all var(--transition-speed);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .btn-back:hover {
-            background-color: var(--accent);
+            background-color: transparent;
             border-color: var(--accent);
-            box-shadow: 0 4px 20px var(--accent-glow);
-            transform: translateY(-2px);
+            color: var(--accent);
         }
 
         main {
@@ -232,6 +230,9 @@
             color: var(--text-main);
             cursor: pointer;
             transition: color var(--transition-speed);
+            background: none;
+            border: none;
+            padding: 0;
         }
 
         .lightbox-close:hover {
@@ -255,7 +256,62 @@
             margin-top: 5px;
         }
 
-        @media (max-width: 600px) {
+        .perspectives-section {
+            margin-top: 60px;
+            padding: 30px;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+        }
+
+        .perspectives-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .perspectives-desc {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .perspectives-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .perspectives-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .perspectives-icon {
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-top: 3px;
+        }
+
+        .perspectives-item-title {
+            color: var(--text-main);
+            display: block;
+            font-weight: bold;
+        }
+
+        .perspectives-item-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 900px) {
             .header-container {
                 flex-direction: column;
                 text-align: center;
@@ -287,7 +343,7 @@
 
         <div class="gallery-grid">
             <!-- Capture 1 -->
-            <div class="gallery-item" onclick="openLightbox('assets/yaram_jangat_screenshots/screenshot1.png', 'Écran de Connexion', 'Interface sécurisée d\'authentification pour les médecins et le personnel administratif.')">
+            <div class="gallery-item" role="button" tabindex="0" onclick="openLightbox('assets/yaram_jangat_screenshots/screenshot1.png', 'Écran de Connexion', 'Interface sécurisée d\'authentification pour les médecins et le personnel administratif.')">
                 <div class="img-container">
                     <img src="assets/yaram_jangat_screenshots/screenshot1.png" alt="Écran de Connexion" class="gallery-img">
                 </div>
@@ -299,7 +355,7 @@
             </div>
 
             <!-- Capture 2 -->
-            <div class="gallery-item" onclick="openLightbox('assets/yaram_jangat_screenshots/screenshot2.png', 'Écran d\'Inscription', 'Fenêtre d\'enregistrement pour un nouveau médecin, secrétaire ou patient.')">
+            <div class="gallery-item" role="button" tabindex="0" onclick="openLightbox('assets/yaram_jangat_screenshots/screenshot2.png', 'Écran d\'Inscription', 'Fenêtre d\'enregistrement pour un nouveau médecin, secrétaire ou patient.')">
                 <div class="img-container">
                     <img src="assets/yaram_jangat_screenshots/screenshot2.png" alt="Écran d'Inscription" class="gallery-img">
                 </div>
@@ -311,7 +367,7 @@
             </div>
 
             <!-- Capture 3 -->
-            <div class="gallery-item" onclick="openLightbox('assets/yaram_jangat_screenshots/screenshot3.png', 'Tableau de Bord / Accueil', 'Vue générale de l\'application permettant d\'accéder aux fonctionnalités clés.')">
+            <div class="gallery-item" role="button" tabindex="0" onclick="openLightbox('assets/yaram_jangat_screenshots/screenshot3.png', 'Tableau de Bord / Accueil', 'Vue générale de l\'application permettant d\'accéder aux fonctionnalités clés.')">
                 <div class="img-container">
                     <img src="assets/yaram_jangat_screenshots/screenshot3.png" alt="Tableau de Bord" class="gallery-img">
                 </div>
@@ -323,7 +379,7 @@
             </div>
 
             <!-- Capture 4 -->
-            <div class="gallery-item" onclick="openLightbox('assets/yaram_jangat_screenshots/screenshot4.png', 'Table des Patients', 'Tableau récapitulatif des dossiers patients.')">
+            <div class="gallery-item" role="button" tabindex="0" onclick="openLightbox('assets/yaram_jangat_screenshots/screenshot4.png', 'Table des Patients', 'Tableau récapitulatif des dossiers patients.')">
                 <div class="img-container">
                     <img src="assets/yaram_jangat_screenshots/screenshot4.png" alt="Table des Patients" class="gallery-img">
                 </div>
@@ -335,7 +391,7 @@
             </div>
 
             <!-- Capture 5 -->
-            <div class="gallery-item" onclick="openLightbox('assets/yaram_jangat_screenshots/screenshot5.png', 'Fiche Patient / Infos Médicales', 'Dossier individuel contenant les informations médicales du patient.')">
+            <div class="gallery-item" role="button" tabindex="0" onclick="openLightbox('assets/yaram_jangat_screenshots/screenshot5.png', 'Fiche Patient / Infos Médicales', 'Dossier individuel contenant les informations médicales du patient.')">
                 <div class="img-container">
                     <img src="assets/yaram_jangat_screenshots/screenshot5.png" alt="Fiche Patient" class="gallery-img">
                 </div>
@@ -347,7 +403,7 @@
             </div>
 
             <!-- Capture 6 -->
-            <div class="gallery-item" onclick="openLightbox('assets/yaram_jangat_screenshots/screenshot6.png', 'Fiche de Consultation', 'Interface de saisie des consultations.')">
+            <div class="gallery-item" role="button" tabindex="0" onclick="openLightbox('assets/yaram_jangat_screenshots/screenshot6.png', 'Fiche de Consultation', 'Interface de saisie des consultations.')">
                 <div class="img-container">
                     <img src="assets/yaram_jangat_screenshots/screenshot6.png" alt="Fiche de Consultation" class="gallery-img">
                 </div>
@@ -359,7 +415,7 @@
             </div>
 
             <!-- Capture 7 -->
-            <div class="gallery-item" onclick="openLightbox('assets/yaram_jangat_screenshots/screenshot7.png', 'Fiche des Médicaments', 'Dictionnaire et enregistrement des médicaments.')">
+            <div class="gallery-item" role="button" tabindex="0" onclick="openLightbox('assets/yaram_jangat_screenshots/screenshot7.png', 'Fiche des Médicaments', 'Dictionnaire et enregistrement des médicaments.')">
                 <div class="img-container">
                     <img src="assets/yaram_jangat_screenshots/screenshot7.png" alt="Fiche des Médicaments" class="gallery-img">
                 </div>
@@ -371,7 +427,7 @@
             </div>
 
             <!-- Capture 8 -->
-            <div class="gallery-item" onclick="openLightbox('assets/yaram_jangat_screenshots/screenshot8.png', 'Table des Motifs de Consultation', 'Configuration des différents motifs de visite.')">
+            <div class="gallery-item" role="button" tabindex="0" onclick="openLightbox('assets/yaram_jangat_screenshots/screenshot8.png', 'Table des Motifs de Consultation', 'Configuration des différents motifs de visite.')">
                 <div class="img-container">
                     <img src="assets/yaram_jangat_screenshots/screenshot8.png" alt="Motifs de Consultation" class="gallery-img">
                 </div>
@@ -383,7 +439,7 @@
             </div>
 
             <!-- Capture 9 -->
-            <div class="gallery-item" onclick="openLightbox('assets/yaram_jangat_screenshots/screenshot9.png', 'Fiche d\'Ordonnance', 'Outil d\'édition de l\'ordonnance personnalisée.')">
+            <div class="gallery-item" role="button" tabindex="0" onclick="openLightbox('assets/yaram_jangat_screenshots/screenshot9.png', 'Fiche d\'Ordonnance', 'Outil d\'édition de l\'ordonnance personnalisée.')">
                 <div class="img-container">
                     <img src="assets/yaram_jangat_screenshots/screenshot9.png" alt="Fiche d'Ordonnance" class="gallery-img">
                 </div>
@@ -395,7 +451,7 @@
             </div>
 
             <!-- Capture 10 -->
-            <div class="gallery-item" onclick="openLightbox('assets/yaram_jangat_screenshots/screenshot10.png', 'Gestion des Traitements', 'Interface d\'attribution des traitements au patient.')">
+            <div class="gallery-item" role="button" tabindex="0" onclick="openLightbox('assets/yaram_jangat_screenshots/screenshot10.png', 'Gestion des Traitements', 'Interface d\'attribution des traitements au patient.')">
                 <div class="img-container">
                     <img src="assets/yaram_jangat_screenshots/screenshot10.png" alt="Gestion des Traitements" class="gallery-img">
                 </div>
@@ -404,39 +460,42 @@
                     <h3>Gestion des Traitements</h3>
                     <p>Fenêtre de l'application permettant de rédiger, d'éditer et d'attribuer un traitement thérapeutique spécifique au patient.</p>
                 </div>
+            </div>
+        </div>
+
         <!-- Section Perspectives / Bilan -->
-        <div style="margin-top: 60px; padding: 30px; background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 16px;">
-            <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 20px; background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: flex; align-items: center; gap: 8px;"><i class='bx bx-trending-up'></i> Bilan & Améliorations futures (Perspectives)</h2>
-            <p style="color: var(--text-muted); margin-bottom: 20px;">
+        <div class="perspectives-section">
+            <h2 class="perspectives-title"><i class='bx bx-trending-up'></i> Bilan & Améliorations futures (Perspectives)</h2>
+            <p class="perspectives-desc">
                 Conformément à l'évaluation générale rédigée dans le mémoire de fin d'études, voici les perspectives de développement et les optimisations identifiées pour faire évoluer l'application :
             </p>
-            <ul style="list-style: none; display: flex; flex-direction: column; gap: 15px;">
-                <li style="display: flex; gap: 12px; align-items: flex-start;">
-                    <i class='bx bx-right-arrow-alt' style="color: var(--accent); font-size: 1.3rem; margin-top: 3px;"></i>
+            <ul class="perspectives-list">
+                <li class="perspectives-item">
+                    <i class='bx bx-right-arrow-alt perspectives-icon'></i>
                     <div>
-                        <strong style="color: var(--text-main); display: block;">Architecture Back-Office vs Front-Office (Portail Patient)</strong>
-                        <span style="color: var(--text-muted); font-size: 0.95rem;">L'application actuelle sous WinDev se concentre exclusivement sur le Back-Office clinique (les fonctionnalités destinées aux médecins et secrétaires). L'ouverture de l'accès direct en ligne aux patients (Front-Office) a été théorisée dans le mémoire et constitue le principal axe d'évolution future.</span>
+                        <strong class="perspectives-item-title">Architecture Back-Office vs Front-Office (Portail Patient)</strong>
+                        <span class="perspectives-item-desc">L'application actuelle sous WinDev se concentre exclusivement sur le Back-Office clinique (les fonctionnalités destinées aux médecins et secrétaires). L'ouverture de l'accès direct en ligne aux patients (Front-Office) a été théorisée dans le mémoire et constitue le principal axe d'évolution future.</span>
                     </div>
                 </li>
-                <li style="display: flex; gap: 12px; align-items: flex-start;">
-                    <i class='bx bx-right-arrow-alt' style="color: var(--accent); font-size: 1.3rem; margin-top: 3px;"></i>
+                <li class="perspectives-item">
+                    <i class='bx bx-right-arrow-alt perspectives-icon'></i>
                     <div>
-                        <strong style="color: var(--text-main); display: block;">Exportation Excel des dossiers médicaux</strong>
-                        <span style="color: var(--text-muted); font-size: 0.95rem;">Ajouter un module permettant aux utilisateurs d'exporter l'historique complet de leurs dossiers médicaux sous format Microsoft Excel pour un usage personnel ou externe.</span>
+                        <strong class="perspectives-item-title">Exportation Excel des dossiers médicaux</strong>
+                        <span class="perspectives-item-desc">Ajouter un module permettant aux utilisateurs d'exporter l'historique complet de leurs dossiers médicaux sous format Microsoft Excel pour un usage personnel ou externe.</span>
                     </div>
                 </li>
-                <li style="display: flex; gap: 12px; align-items: flex-start;">
-                    <i class='bx bx-right-arrow-alt' style="color: var(--accent); font-size: 1.3rem; margin-top: 3px;"></i>
+                <li class="perspectives-item">
+                    <i class='bx bx-right-arrow-alt perspectives-icon'></i>
                     <div>
-                        <strong style="color: var(--text-main); display: block;">Notifications et rappels par e-mail / SMS</strong>
-                        <span style="color: var(--text-muted); font-size: 0.95rem;">Peaufiner et intégrer le service d'envoi automatique de notifications de rappel pour les rendez-vous à venir et pour les prises régulières de médicaments.</span>
+                        <strong class="perspectives-item-title">Notifications et rappels par e-mail / SMS</strong>
+                        <span class="perspectives-item-desc">Peaufiner et intégrer le service d'envoi automatique de notifications de rappel pour les rendez-vous à venir et pour les prises régulières de médicaments.</span>
                     </div>
                 </li>
-                <li style="display: flex; gap: 12px; align-items: flex-start;">
-                    <i class='bx bx-right-arrow-alt' style="color: var(--accent); font-size: 1.3rem; margin-top: 3px;"></i>
+                <li class="perspectives-item">
+                    <i class='bx bx-right-arrow-alt perspectives-icon'></i>
                     <div>
-                        <strong style="color: var(--text-main); display: block;">Système d'alertes en temps réel</strong>
-                        <span style="color: var(--text-muted); font-size: 0.95rem;">Finaliser le module de suivi des prescriptions avec des alarmes et des notifications push en temps réel pour alerter sur le moment exact de renouvellement des ordonnances.</span>
+                        <strong class="perspectives-item-title">Système d'alertes en temps réel</strong>
+                        <span class="perspectives-item-desc">Finaliser le module de suivi des prescriptions avec des alarmes et des notifications push en temps réel pour alerter sur le moment exact de renouvellement des ordonnances.</span>
                     </div>
                 </li>
             </ul>
@@ -444,9 +503,9 @@
     </main>
 
     <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" onclick="closeLightbox()">
         <div class="lightbox-content" onclick="event.stopPropagation()">
-            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <button class="lightbox-close" aria-label="Fermer" onclick="closeLightbox()">&times;</button>
             <img id="lightbox-img" class="lightbox-img" src="" alt="">
             <div class="lightbox-caption">
                 <h3 id="lightbox-title"></h3>
@@ -477,6 +536,16 @@
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeLightbox();
+        });
+
+        // Setup keyboard support for gallery items
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    item.click();
+                }
+            });
         });
     </script>
 </body>

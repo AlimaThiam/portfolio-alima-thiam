@@ -643,9 +643,9 @@
                             <span id="gesschool-title">Form1 - Liste des Classes</span>
                         </div>
                         <div class="winforms-controls">
-                            <button class="win-ctrl-btn">—</button>
-                            <button class="win-ctrl-btn">❑</button>
-                            <button class="win-ctrl-btn close">&times;</button>
+                            <button class="win-ctrl-btn" aria-label="Réduire">—</button>
+                            <button class="win-ctrl-btn" aria-label="Agrandir">❑</button>
+                            <button class="win-ctrl-btn close" aria-label="Fermer">&times;</button>
                         </div>
                     </div>
                     <div class="winforms-menubar">
@@ -825,7 +825,7 @@
                                     </div>
                                 </div>
                                 <div style="margin-top: 15px;">
-                                    <button class="win-btn" onclick="alert('Lancement de l\'impression CrystalReport...')">
+                                    <button class="win-btn" onclick="showMessageBox('ges_school', 'Lancement de l\'impression CrystalReport...')">
                                         <i class='bx bx-printer'></i> Imprimer Rapport
                                     </button>
                                 </div>
@@ -857,9 +857,9 @@
                             <span>MainForm - Bureau Commercial de Gestion des Ventes</span>
                         </div>
                         <div class="winforms-controls">
-                            <button class="win-ctrl-btn">—</button>
-                            <button class="win-ctrl-btn">❑</button>
-                            <button class="win-ctrl-btn close">&times;</button>
+                            <button class="win-ctrl-btn" aria-label="Réduire">—</button>
+                            <button class="win-ctrl-btn" aria-label="Agrandir">❑</button>
+                            <button class="win-ctrl-btn close" aria-label="Fermer">&times;</button>
                         </div>
                     </div>
                     <div class="winforms-menubar">
@@ -1110,9 +1110,9 @@
                             <span>MDIParentMain - Application d'Administration MySQL</span>
                         </div>
                         <div class="winforms-controls">
-                            <button class="win-ctrl-btn">—</button>
-                            <button class="win-ctrl-btn">❑</button>
-                            <button class="win-ctrl-btn close">&times;</button>
+                            <button class="win-ctrl-btn" aria-label="Réduire">—</button>
+                            <button class="win-ctrl-btn" aria-label="Agrandir">❑</button>
+                            <button class="win-ctrl-btn close" aria-label="Fermer">&times;</button>
                         </div>
                     </div>
                     <div class="winforms-menubar">
@@ -1139,7 +1139,7 @@
                                         <label class="win-label">Nom Catégorie</label>
                                         <input type="text" class="win-textbox" id="mdi-cat-name" placeholder="ex: Informatique">
                                     </div>
-                                    <button class="win-btn primary" onclick="alert('Connexion MySQL etablie. Categorie enregistree !')">Ajouter</button>
+                                    <button class="win-btn primary" onclick="showMessageBox('mdi_parent', 'Connexion MySQL etablie. Categorie enregistree !')">Ajouter</button>
                                 </div>
                             </div>
 
@@ -1158,7 +1158,7 @@
                                         <label class="win-label">Catégorie ID</label>
                                         <input type="number" class="win-textbox" placeholder="1">
                                     </div>
-                                    <button class="win-btn primary" onclick="alert('INSERT INTO produit exécuté avec succès sur MySQL !')">Valider</button>
+                                    <button class="win-btn primary" onclick="showMessageBox('mdi_parent', 'INSERT INTO produit exécuté avec succès sur MySQL !')">Valider</button>
                                 </div>
                             </div>
 
@@ -1177,7 +1177,7 @@
                                         <label class="win-label">Poste</label>
                                         <input type="text" class="win-textbox" placeholder="Développeuse C#">
                                     </div>
-                                    <button class="win-btn primary" onclick="alert('Employé sauvegardé dans MySQL.')">Enregistrer</button>
+                                    <button class="win-btn primary" onclick="showMessageBox('mdi_parent', 'Employé sauvegardé dans MySQL.')">Enregistrer</button>
                                 </div>
                             </div>
 
@@ -1207,9 +1207,9 @@
                             <span id="crudscolaire-title">Form3 - Authentification</span>
                         </div>
                         <div class="winforms-controls">
-                            <button class="win-ctrl-btn">—</button>
-                            <button class="win-ctrl-btn">❑</button>
-                            <button class="win-ctrl-btn close">&times;</button>
+                            <button class="win-ctrl-btn" aria-label="Réduire">—</button>
+                            <button class="win-ctrl-btn" aria-label="Agrandir">❑</button>
+                            <button class="win-ctrl-btn close" aria-label="Fermer">&times;</button>
                         </div>
                     </div>
                     
@@ -1443,6 +1443,16 @@
             { id: 2, prenom: "Fatou", nom: "Gaye", classe: "L2GL" }
         ];
 
+        const salesCategories = [
+            { id: 1, name: 'Ordinateurs' },
+            { id: 2, name: 'Écrans' }
+        ];
+
+        const salesClients = [
+            { id: 1, name: 'Amadou Diop', phone: '77 555 12 34' },
+            { id: 2, name: 'Awa Sow', phone: '78 123 45 67' }
+        ];
+
         let selectedGsEtudiantId = null;
         let selectedCrudId = null;
 
@@ -1451,7 +1461,10 @@
             renderGesSchoolEtudiants();
             renderSalesGrid();
             renderSalesProducts();
+            renderSalesCategories();
+            renderSalesClients();
             renderCrudGrid();
+            renderCrudClasses();
             salesUpdateUnitPrice();
         }
 
@@ -1544,7 +1557,7 @@
         function gsSaveClasse() {
             const spec = document.getElementById('gs-spec').value;
             const niv = document.getElementById('gs-niv').value;
-            const id = gsClasses.length + 1;
+            const id = gsClasses.length > 0 ? Math.max(...gsClasses.map(c => c.id)) + 1 : 1;
             const libelle = spec + " " + niv;
 
             gsClasses.push({ id, libelle, niveau: niv, specialite: spec });
@@ -1561,7 +1574,7 @@
             const classe = document.getElementById('gs-etud-classe').value;
 
             if (!nom || !prenom) {
-                alert("Veuillez saisir le nom et prénom.");
+                showMessageBox('ges_school', "Veuillez saisir le nom et prénom.");
                 return;
             }
 
@@ -1590,7 +1603,7 @@
 
         function gsDeleteEtudiant() {
             if (selectedGsEtudiantId === null) {
-                alert("Veuillez sélectionner un étudiant dans la grille.");
+                showMessageBox('ges_school', "Veuillez sélectionner un étudiant dans la grille.");
                 return;
             }
 
@@ -1661,21 +1674,40 @@
             });
         }
 
+        function renderSalesCategories() {
+            const tbody = document.querySelector('#sales-cat-grid tbody');
+            tbody.innerHTML = '';
+            const combo = document.getElementById('sales-prod-cat');
+            combo.innerHTML = '';
+            salesCategories.forEach(cat => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td>${cat.id}</td><td>${cat.name}</td>`;
+                tbody.appendChild(tr);
+
+                const opt = document.createElement('option');
+                opt.value = cat.name;
+                opt.textContent = cat.name;
+                combo.appendChild(opt);
+            });
+        }
+
+        function renderSalesClients() {
+            const tbody = document.querySelector('#sales-client-grid tbody');
+            tbody.innerHTML = '';
+            salesClients.forEach(c => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td>${c.id}</td><td>${c.name}</td><td>${c.phone}</td>`;
+                tbody.appendChild(tr);
+            });
+        }
+
         function salesAddCategory() {
             const val = document.getElementById('sales-cat-input').value.trim();
             if (!val) return;
 
-            const tbody = document.querySelector('#sales-cat-grid tbody');
-            const id = tbody.rows.length + 1;
-            const tr = document.createElement('tr');
-            tr.innerHTML = `<td>${id}</td><td>${val}</td>`;
-            tbody.appendChild(tr);
-
-            // Add to product category select
-            const opt = document.createElement('option');
-            opt.value = val;
-            opt.textContent = val;
-            document.getElementById('sales-prod-cat').appendChild(opt);
+            const id = salesCategories.length > 0 ? Math.max(...salesCategories.map(c => c.id)) + 1 : 1;
+            salesCategories.push({ id: id, name: val });
+            renderSalesCategories();
 
             document.getElementById('sales-cat-input').value = '';
             showMessageBox('gestion_ventes', "Catégorie ajoutée avec succès !");
@@ -1701,11 +1733,9 @@
 
             if (!name) return;
 
-            const tbody = document.querySelector('#sales-client-grid tbody');
-            const id = tbody.rows.length + 1;
-            const tr = document.createElement('tr');
-            tr.innerHTML = `<td>${id}</td><td>${name}</td><td>${phone}</td>`;
-            tbody.appendChild(tr);
+            const id = salesClients.length > 0 ? Math.max(...salesClients.map(c => c.id)) + 1 : 1;
+            salesClients.push({ id: id, name: name, phone: phone });
+            renderSalesClients();
 
             document.getElementById('sales-cli-name').value = '';
             document.getElementById('sales-cli-phone').value = '';
@@ -1718,7 +1748,7 @@
             const qte = parseInt(document.getElementById('sale-qte').value);
 
             if (!prod || qte <= 0) {
-                alert("Quantité invalide.");
+                showMessageBox('gestion_ventes', "Quantité invalide.");
                 return;
             }
 
@@ -1795,7 +1825,7 @@
                 document.getElementById('crudscolaire-title').textContent = "Form4 - Menu Principal";
                 showMessageBox('crud_scolaire', "Login successfully !");
             } else {
-                alert("Identifiants incorrects (admin / admin)");
+                showMessageBox('crud_scolaire', "Identifiants incorrects (admin / admin)");
             }
         }
 
@@ -1819,7 +1849,12 @@
             const libelle = niv + spec;
 
             const tbody = document.querySelector('#crud-classe-grid tbody');
-            const id = tbody.rows.length + 1;
+            let maxId = 0;
+            for (let i = 0; i < tbody.rows.length; i++) {
+                const rowId = parseInt(tbody.rows[i].cells[0].textContent) || 0;
+                if (rowId > maxId) maxId = rowId;
+            }
+            const id = maxId + 1;
             const tr = document.createElement('tr');
             tr.innerHTML = `<td>${id}</td><td>${libelle}</td><td>${niv}</td><td>${spec}</td>`;
             tbody.appendChild(tr);
@@ -1864,7 +1899,7 @@
             const classe = document.getElementById('crud-classe').value;
 
             if (!nom || !prenom) {
-                alert("Veuillez remplir le nom et le prénom.");
+                showMessageBox('crud_scolaire', "Veuillez remplir le nom et le prénom.");
                 return;
             }
 
@@ -1877,7 +1912,7 @@
 
         function crudUpdate() {
             if (selectedCrudId === null) {
-                alert("Sélectionnez d'abord un étudiant dans la grille.");
+                showMessageBox('crud_scolaire', "Sélectionnez d'abord un étudiant dans la grille.");
                 return;
             }
 
@@ -1898,7 +1933,7 @@
 
         function crudDelete() {
             if (selectedCrudId === null) {
-                alert("Sélectionnez d'abord un étudiant dans la grille.");
+                showMessageBox('crud_scolaire', "Sélectionnez d'abord un étudiant dans la grille.");
                 return;
             }
 

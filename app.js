@@ -223,13 +223,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Fermer le menu mobile au défilement
         if (navbar.classList.contains("active")) {
-            navbar.classList.remove("active");
-            if (menuBtn) {
-                const icon = menuBtn.querySelector("i");
-                icon.classList.replace("bx-x", "bx-menu");
-            }
+            closeMenu();
         }
     });
+
+    // Fonction utilitaire pour fermer le menu mobile (DRY)
+    function closeMenu() {
+        navbar.classList.remove("active");
+        if (menuBtn) {
+            const icon = menuBtn.querySelector("i");
+            icon.classList.replace("bx-x", "bx-menu");
+        }
+    }
 
     // 2. TOGGLE NAVIGATION MENU (MOBILE)
     if (menuBtn) {
@@ -247,11 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Fermer le menu mobile lors d'un clic sur un lien
     navLinks.forEach(link => {
         link.addEventListener("click", () => {
-            navbar.classList.remove("active");
-            if (menuBtn) {
-                const icon = menuBtn.querySelector("i");
-                icon.classList.replace("bx-x", "bx-menu");
-            }
+            closeMenu();
         });
     });
 
@@ -351,6 +352,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("project-modal");
     const closeModalBtn = document.querySelector(".close-modal");
 
+    // Fonction utilitaire pour remplir une liste dynamique (DRY)
+    function populateList(container, items, tagName, className) {
+        container.innerHTML = "";
+        items.forEach(item => {
+            const el = document.createElement(tagName);
+            if (className) el.className = className;
+            el.textContent = item;
+            container.appendChild(el);
+        });
+    }
+
     projectCards.forEach(card => {
         card.addEventListener("click", () => {
             const projectId = card.getAttribute("data-project-id");
@@ -364,39 +376,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("modal-project-title").textContent = data.title;
                 document.getElementById("modal-project-description").textContent = data.description;
 
-                // Remplissage des fonctionnalités
-                const featuresList = document.getElementById("modal-project-features");
-                featuresList.innerHTML = "";
-                data.features.forEach(feat => {
-                    const li = document.createElement("li");
-                    li.textContent = feat;
-                    featuresList.appendChild(li);
-                });
+                // Remplissage des fonctionnalités (utilise populateList)
+                populateList(document.getElementById("modal-project-features"), data.features, "li");
 
                 // Remplissage des perspectives (si présentes)
                 const perspectivesSection = document.getElementById("modal-project-perspectives-section");
                 const perspectivesList = document.getElementById("modal-project-perspectives");
                 if (data.perspectives && data.perspectives.length > 0) {
                     perspectivesSection.style.display = "block";
-                    perspectivesList.innerHTML = "";
-                    data.perspectives.forEach(persp => {
-                        const li = document.createElement("li");
-                        li.textContent = persp;
-                        perspectivesList.appendChild(li);
-                    });
+                    populateList(perspectivesList, data.perspectives, "li");
                 } else {
                     perspectivesSection.style.display = "none";
                 }
 
-                // Remplissage des technos
-                const techsContainer = document.getElementById("modal-project-techs");
-                techsContainer.innerHTML = "";
-                data.techs.forEach(tech => {
-                    const span = document.createElement("span");
-                    span.className = "modal-tech-tag";
-                    span.textContent = tech;
-                    techsContainer.appendChild(span);
-                });
+                // Remplissage des technos (utilise populateList)
+                populateList(document.getElementById("modal-project-techs"), data.techs, "span", "modal-tech-tag");
 
                 // Remplissage des boutons d'actions
                 const linksContainer = document.getElementById("modal-project-links");
@@ -425,6 +419,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener("click", (e) => {
         if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Fermer la modale avec la touche Escape
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("active")) {
             closeModal();
         }
     });
