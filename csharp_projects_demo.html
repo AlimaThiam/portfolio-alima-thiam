@@ -567,13 +567,136 @@
             gap: 8px;
         }
 
-        /* Screen-width alert */
+        /* =====================================================
+           RESPONSIVE — TABLETTE (max 900px)
+        ===================================================== */
         @media (max-width: 900px) {
             .demo-layout {
                 grid-template-columns: 1fr;
             }
             .divider {
                 display: none;
+            }
+            .kpi-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* =====================================================
+           RESPONSIVE — MOBILE (max 600px)
+        ===================================================== */
+        @media (max-width: 600px) {
+
+            /* Header */
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                padding: 0 16px;
+            }
+
+            .logo-area h1 {
+                font-size: 1.1rem;
+            }
+
+            .btn-back {
+                font-size: 0.82rem;
+                padding: 8px 14px;
+            }
+
+            /* Main padding */
+            main {
+                margin-top: 24px;
+                padding: 0 14px;
+            }
+
+            .intro-text {
+                font-size: 0.93rem;
+                margin-bottom: 24px;
+            }
+
+            /* Sidebar tabs → horizontal scroll row */
+            .sidebar-menu {
+                flex-direction: row;
+                overflow-x: auto;
+                gap: 8px;
+                padding-bottom: 6px;
+            }
+
+            .tab-btn {
+                flex-shrink: 0;
+                padding: 10px 14px;
+                font-size: 0.85rem;
+            }
+
+            /* Form rows stack vertically */
+            .win-form-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            /* WinForms client area — remove fixed min-height */
+            .winforms-client {
+                min-height: unset;
+                padding: 10px;
+            }
+
+            /* KPI cards → single column */
+            .kpi-container {
+                grid-template-columns: 1fr;
+            }
+
+            /* DataGrid — allow horizontal scroll, remove nowrap */
+            .grid-container {
+                overflow-x: auto;
+            }
+
+            .win-datagridview td {
+                white-space: normal;
+                word-break: break-word;
+                font-size: 11px;
+                padding: 4px 6px;
+            }
+
+            .win-datagridview th {
+                font-size: 11px;
+                padding: 4px 6px;
+            }
+
+            /* MDI child windows — fit screen width */
+            .mdi-child-window {
+                width: calc(100% - 20px);
+                position: relative;
+                top: unset !important;
+                left: unset !important;
+                margin: 8px auto;
+            }
+
+            .mdi-desktop {
+                height: auto;
+                min-height: 300px;
+                display: flex;
+                flex-direction: column;
+                overflow-y: auto;
+            }
+
+            /* MessageBox overlay */
+            .csharp-messagebox {
+                width: calc(100% - 30px);
+            }
+
+            /* Project meta info */
+            .project-meta-info {
+                padding: 16px;
+            }
+
+            .project-meta-info h2 {
+                font-size: 1.1rem;
+            }
+
+            /* WinForms title bar controls shrink */
+            .win-ctrl-btn {
+                width: 36px;
             }
         }
     </style>
