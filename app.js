@@ -133,7 +133,7 @@ const projectsData = {
             "Base de données SQL Server structurée pour assurer la persistance et l'intégrité des informations"
         ],
         techs: ["C#", "SQL Server", "Windows Forms", "ADO.NET", "Visual Studio"],
-        demoLink: "#",
+        demoLink: "csharp_projects_demo.html?project=ges_school",
         repoLink: "https://github.com/AlimaThiam/GesSchool"
     },
     "9": {
@@ -148,7 +148,7 @@ const projectsData = {
             "Rapports de ventes et suivi du chiffre d'affaires global"
         ],
         techs: ["C#", "SQL Server", "Windows Forms", "ADO.NET", "Génération d'États"],
-        demoLink: "#",
+        demoLink: "csharp_projects_demo.html?project=gestion_ventes",
         repoLink: "https://github.com/AlimaThiam/gestiondesventes"
     },
     "10": {
@@ -163,7 +163,7 @@ const projectsData = {
             "Optimisation des requêtes SQL de lecture et d'écriture"
         ],
         techs: ["C#", "MySQL", "MDI Architecture", "ADO.NET", "SQL Server"],
-        demoLink: "#",
+        demoLink: "csharp_projects_demo.html?project=mdi_parent",
         repoLink: "https://github.com/AlimaThiam/MDIParentMySQL"
     },
     "11": {
@@ -178,7 +178,7 @@ const projectsData = {
             "Logique d'accès aux données optimisée avec SQL Server"
         ],
         techs: ["C#", "SQL Server", "Windows Forms", "ADO.NET", "CRUD Logic"],
-        demoLink: "#",
+        demoLink: "csharp_projects_demo.html?project=crud_scolaire",
         repoLink: "https://github.com/AlimaThiam/crudscolaire"
     }
 };

@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Démonstrations Interactives C# • Alima Thiam</title>
+    <!-- Boxicons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0b0f19;
+            --bg-secondary: #111827;
+            --border-color: #1f2937;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --win-bg: #f0f0f0;
+            --win-border: #999;
+            --win-text: #000;
+            --win-blue: #0078d7;
+            --win-hover: #e5f1fb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        header {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo-area h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-area p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .btn-back {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--border-color);
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-back:hover {
+            background-color: var(--bg-main);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 40px auto 0 auto;
+            padding: 0 20px;
+        }
+
+        .intro-text {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+
+        /* Tabs & Selector Layout */
+        .demo-layout {
+            display: grid;
+            grid-template-columns: 280px 1px 1fr;
+            gap: 30px;
+            min-height: 600px;
+        }
+
+        .sidebar-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .sidebar-menu h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .tab-btn {
+            background: none;
+            border: 1px solid transparent;
+            color: var(--text-muted);
+            padding: 14px 18px;
+            text-align: left;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn i {
+            font-size: 1.25rem;
+        }
+
+        .tab-btn:hover {
+            background-color: rgba(59, 130, 246, 0.05);
+            color: var(--text-main);
+        }
+
+        .tab-btn.active {
+            background-color: var(--accent);
+            color: #fff;
+        }
+
+        .divider {
+            background-color: var(--border-color);
+        }
+
+        .demo-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .project-meta-info {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: 16px;
+        }
+
+        .project-meta-info h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .project-meta-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .tech-tag {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: var(--accent);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* ----------------------------------------------------
+           Windows Forms Styling (Simulator Sandbox)
+        ---------------------------------------------------- */
+        .winforms-container {
+            width: 100%;
+            background-color: var(--win-bg);
+            color: var(--win-text);
+            border: 2px solid var(--win-border);
+            border-radius: 6px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            overflow: hidden;
+            display: none;
+        }
+
+        .winforms-container.active {
+            display: block;
+        }
+
+        /* WinForms Title Bar */
+        .winforms-titlebar {
+            background-color: #ffffff;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            border-bottom: 1px solid #ddd;
+            user-select: none;
+        }
+
+        .winforms-icon-title {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .winforms-icon-title i {
+            color: var(--win-blue);
+            font-size: 14px;
+        }
+
+        .winforms-controls {
+            display: flex;
+            height: 100%;
+        }
+
+        .win-ctrl-btn {
+            width: 46px;
+            height: 32px;
+            background: none;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #555;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        .win-ctrl-btn:hover {
+            background-color: #e5e5e5;
+        }
+
+        .win-ctrl-btn.close:hover {
+            background-color: #e81123;
+            color: white;
+        }
+
+        /* WinForms Menu Bar */
+        .winforms-menubar {
+            background-color: #f0f0f0;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            padding: 0 6px;
+            border-bottom: 1px solid #ccc;
+            gap: 12px;
+        }
+
+        .win-menu-item {
+            padding: 2px 6px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .win-menu-item:hover {
+            background-color: #ddd;
+        }
+
+        /* WinForms Client Area */
+        .winforms-client {
+            padding: 15px;
+            background-color: #f0f0f0;
+            min-height: 480px;
+            position: relative;
+        }
+
+        /* WinForms Common Layout Elements */
+        .win-form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .win-panel {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            padding: 12px;
+            border-radius: 4px;
+        }
+
+        .win-panel-title {
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #333;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 4px;
+        }
+
+        /* Controls styling */
+        .win-label {
+            display: block;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .win-textbox {
+            width: 100%;
+            height: 24px;
+            padding: 2px 6px;
+            border: 1px solid #aaa;
+            border-radius: 2px;
+            font-family: inherit;
+            font-size: 12px;
+            outline: none;
+            background-color: #fff;
+            color: #000;
+        }
+
+        .win-textbox:focus {
+            border-color: var(--win-blue);
+        }
+
+        .win-combobox {
+            width: 100%;
+            height: 24px;
+            padding: 2px 6px;
+            border: 1px solid #aaa;
+            border-radius: 2px;
+            font-family: inherit;
+            font-size: 12px;
+            outline: none;
+            background-color: #fff;
+            color: #000;
+        }
+
+        .win-btn {
+            background-color: #e1e1e1;
+            border: 1px solid #adadad;
+            color: #000;
+            padding: 6px 14px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-weight: 600;
+            font-family: inherit;
+            font-size: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            user-select: none;
+        }
+
+        .win-btn:hover {
+            background-color: #e5f1fb;
+            border-color: #0078d7;
+        }
+
+        .win-btn.primary {
+            background-color: #0078d7;
+            color: white;
+            border-color: #005a9e;
+        }
+
+        .win-btn.primary:hover {
+            background-color: #005a9e;
+        }
+
+        .win-btn.danger {
+            background-color: #f44336;
+            color: white;
+            border-color: #d32f2f;
+        }
+
+        .win-btn.danger:hover {
+            background-color: #d32f2f;
+        }
+
+        /* WinForms GridView (DataGridView) */
+        .win-datagridview {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
+
+        .win-datagridview th {
+            background-color: #eaeaea;
+            border: 1px solid #ccc;
+            padding: 6px 8px;
+            text-align: left;
+            font-weight: 600;
+            user-select: none;
+        }
+
+        .win-datagridview td {
+            border: 1px solid #eee;
+            padding: 6px 8px;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .win-datagridview tr.selected {
+            background-color: #0078d7 !important;
+            color: #fff !important;
+        }
+
+        .win-datagridview tr:hover {
+            background-color: #f5f5f5;
+            cursor: pointer;
+        }
+
+        .grid-container {
+            overflow-x: auto;
+            max-height: 250px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+
+        /* ----------------------------------------------------
+           MDIParent Window specific styling
+        ---------------------------------------------------- */
+        .mdi-desktop {
+            background-color: #3f3f3f;
+            border: 1px dashed #666;
+            border-radius: 4px;
+            height: 440px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mdi-child-window {
+            position: absolute;
+            background-color: #f0f0f0;
+            border: 1px solid #888;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            width: 320px;
+            display: none;
+            z-index: 10;
+        }
+
+        .mdi-child-window.active {
+            display: block;
+        }
+
+        .mdi-child-title {
+            background-color: #ffffff;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8px;
+            font-weight: 600;
+            border-bottom: 1px solid #ccc;
+            cursor: move;
+        }
+
+        .mdi-child-close {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            color: #777;
+        }
+
+        .mdi-child-close:hover {
+            color: #d9534f;
+        }
+
+        .mdi-child-body {
+            padding: 10px;
+            font-size: 11px;
+        }
+
+        /* ----------------------------------------------------
+           Sales simulation specific layout
+        ---------------------------------------------------- */
+        .kpi-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .kpi-card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .kpi-val {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--win-blue);
+        }
+
+        /* Custom C# MessageBox.Show overlay */
+        .csharp-messagebox {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f0f0f0;
+            border: 1px solid #0078d7;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.4);
+            width: 300px;
+            z-index: 999;
+            font-family: 'Segoe UI', sans-serif;
+            display: none;
+        }
+
+        .cs-msg-title {
+            background-color: #ffffff;
+            padding: 6px 10px;
+            font-weight: 600;
+            font-size: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cs-msg-body {
+            padding: 18px 15px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cs-msg-body i {
+            font-size: 24px;
+            color: #0078d7;
+        }
+
+        .cs-msg-buttons {
+            background-color: #e1e1e1;
+            padding: 8px 10px;
+            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        /* Screen-width alert */
+        @media (max-width: 900px) {
+            .demo-layout {
+                grid-template-columns: 1fr;
+            }
+            .divider {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo-area">
+                <h1>Démonstrations Interactives C#</h1>
+                <p>Simulateurs de bureau Windows Forms en HTML5/JS</p>
+            </div>
+            <a href="index.html#projects" class="btn-back">
+                <i class='bx bx-arrow-back'></i> Retour au Portfolio
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <p class="intro-text">
+            Comme les applications de bureau C# (.NET) ne peuvent pas s'exécuter directement dans un navigateur web, j'ai développé ces **simulateurs web interactifs répliquant exactement le design Windows Forms, l'architecture et les algorithmes** de mes logiciels réels. Vous pouvez manipuler les formulaires, insérer des données et tester la logique CRUD en temps réel.
+        </p>
+
+        <div class="demo-layout">
+            <!-- Sidebar Project selector -->
+            <div class="sidebar-menu">
+                <h3>Sélectionner un projet</h3>
+                <button class="tab-btn active" onclick="switchProject('ges_school')">
+                    <i class='bx bx-book-reader'></i> GesSchool
+                </button>
+                <button class="tab-btn" onclick="switchProject('gestion_ventes')">
+                    <i class='bx bx-cart-alt'></i> Gestion des Ventes
+                </button>
+                <button class="tab-btn" onclick="switchProject('mdi_parent')">
+                    <i class='bx bx-window-open'></i> MDIParent MySQL
+                </button>
+                <button class="tab-btn" onclick="switchProject('crud_scolaire')">
+                    <i class='bx bx-data'></i> CRUD Scolaire
+                </button>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Demo Contents Area -->
+            <div class="demo-content">
+
+                <!-- 1. GESSCHOOL METADATA & SIMULATION -->
+                <div class="project-meta-info" id="meta-ges_school">
+                    <h2>GesSchool — Système de Gestion Scolaire</h2>
+                    <p>
+                        Application Windows Forms structurée en couches avec Entity Framework. Elle gère la configuration des classes et des départements ainsi que le registre d'inscription des élèves avec calcul de règlements financiers (frais de scolarité et crédit restant).
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">C# (.NET)</span>
+                        <span class="tech-tag">SQL Server</span>
+                        <span class="tech-tag">Windows Forms</span>
+                        <span class="tech-tag">Entity Framework</span>
+                        <span class="tech-tag">Architecture N-Tiers</span>
+                    </div>
+                </div>
+
+                <!-- GesSchool Sandbox -->
+                <div class="winforms-container active" id="sandbox-ges_school">
+                    <div class="winforms-titlebar">
+                        <div class="winforms-icon-title">
+                            <i class='bx bx-book-reader'></i>
+                            <span id="gesschool-title">Form1 - Liste des Classes</span>
+                        </div>
+                        <div class="winforms-controls">
+                            <button class="win-ctrl-btn">—</button>
+                            <button class="win-ctrl-btn">❑</button>
+                            <button class="win-ctrl-btn close">&times;</button>
+                        </div>
+                    </div>
+                    <div class="winforms-menubar">
+                        <span class="win-menu-item" onclick="toggleGesSchoolForm('classe')">Gestion Classes</span>
+                        <span class="win-menu-item" onclick="toggleGesSchoolForm('etudiant')">Gestion Étudiants</span>
+                    </div>
+
+                    <!-- Client Area -->
+                    <div class="winforms-client">
+                        <!-- Global Alert Box -->
+                        <div id="msgbox-ges_school" class="csharp-messagebox">
+                            <div class="cs-msg-title">GesSchool System</div>
+                            <div class="cs-msg-body">
+                                <i class='bx bx-info-circle'></i>
+                                <span id="msgbox-text-ges_school">Message</span>
+                            </div>
+                            <div class="cs-msg-buttons">
+                                <button class="win-btn primary" onclick="closeMessageBox('ges_school')">OK</button>
+                            </div>
+                        </div>
+
+                        <!-- 1. Formulaire Classes (Form1) -->
+                        <div id="gesschool-classe-panel">
+                            <div class="win-form-row">
+                                <div class="win-panel" style="flex: 1;">
+                                    <div class="win-panel-title">Ajouter une Nouvelle Classe</div>
+                                    <div style="margin-bottom: 10px;">
+                                        <label class="win-label">Spécialité</label>
+                                        <select id="gs-spec" class="win-combobox">
+                                            <option value="IAGE">IAGE (Informatique Appliquée à la Gestion)</option>
+                                            <option value="GL">GL (Génie Logiciel)</option>
+                                            <option value="CD">CD (Création Digitale)</option>
+                                        </select>
+                                    </div>
+                                    <div style="margin-bottom: 15px;">
+                                        <label class="win-label">Niveau</label>
+                                        <select id="gs-niv" class="win-combobox">
+                                            <option value="L1">L1 (Licence 1)</option>
+                                            <option value="L2">L2 (Licence 2)</option>
+                                            <option value="L3">L3 (Licence 3)</option>
+                                        </select>
+                                    </div>
+                                    <button class="win-btn primary" onclick="gsSaveClasse()">
+                                        <i class='bx bx-save'></i> save_Click
+                                    </button>
+                                </div>
+
+                                <div class="win-panel" style="flex: 2;">
+                                    <div class="win-panel-title">dtgClasse (DataGridView de Classes)</div>
+                                    <div class="grid-container">
+                                        <table class="win-datagridview" id="gs-classe-grid">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Libellé</th>
+                                                    <th>Niveau</th>
+                                                    <th>Spécialité</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- Dyn -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div style="margin-top: 15px; display: flex; gap: 10px;">
+                                        <button class="win-btn" onclick="toggleGesSchoolForm('etudiant')">
+                                            <i class='bx bx-user-plus'></i> Ouvrir Form2 (Étudiants)
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Formulaire Étudiants (Form2) -->
+                        <div id="gesschool-etudiant-panel" style="display: none;">
+                            <div class="win-form-row">
+                                <div class="win-panel" style="flex: 1;">
+                                    <div class="win-panel-title">Saisie d'un Étudiant</div>
+                                    <div style="margin-bottom: 8px;">
+                                        <label class="win-label">Nom</label>
+                                        <input type="text" id="gs-nom" class="win-textbox">
+                                    </div>
+                                    <div style="margin-bottom: 8px;">
+                                        <label class="win-label">Prénom</label>
+                                        <input type="text" id="gs-prenom" class="win-textbox">
+                                    </div>
+                                    <div style="margin-bottom: 8px;">
+                                        <label class="win-label">Année Scolaire</label>
+                                        <input type="number" id="gs-anne" class="win-textbox" value="2026">
+                                    </div>
+                                    <div style="margin-bottom: 8px;">
+                                        <label class="win-label">Montant Réglé</label>
+                                        <input type="number" id="gs-montant" class="win-textbox" value="500000">
+                                    </div>
+                                    <div style="margin-bottom: 8px;">
+                                        <label class="win-label">Crédit Restant</label>
+                                        <input type="number" id="gs-credit" class="win-textbox" value="300000">
+                                    </div>
+                                    <div style="margin-bottom: 12px;">
+                                        <label class="win-label">Classe</label>
+                                        <select id="gs-etud-classe" class="win-combobox">
+                                            <!-- Dyn -->
+                                        </select>
+                                    </div>
+                                    <div style="display: flex; gap: 8px;">
+                                        <button class="win-btn primary" onclick="gsSaveEtudiant()">Valider</button>
+                                        <button class="win-btn danger" onclick="gsDeleteEtudiant()">Supprimer</button>
+                                    </div>
+                                </div>
+
+                                <div class="win-panel" style="flex: 2;">
+                                    <div class="win-panel-title">dtgEtudiant (DataGridView d'Étudiants)</div>
+                                    <div class="grid-container">
+                                        <table class="win-datagridview" id="gs-etudiant-grid">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Prénom</th>
+                                                    <th>Nom</th>
+                                                    <th>Année S.</th>
+                                                    <th>Classe</th>
+                                                    <th>Réglé</th>
+                                                    <th>Crédit</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- Dyn -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div style="margin-top: 15px;">
+                                        <button class="win-btn" onclick="toggleGesSchoolForm('classe')">
+                                            <i class='bx bx-left-arrow-alt'></i> Retour Form1 (Classes)
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 2. GESTION DES VENTES METADATA & SIMULATION -->
+                <div class="project-meta-info" id="meta-gestion_ventes" style="display: none;">
+                    <h2>Gestion des Ventes — Facturation & Stock</h2>
+                    <p>
+                        Application Windows Form commerciale. Elle gère la comptabilité des ventes, la mise à jour dynamique des stocks et la génération d'états d'impression pour les factures des clients.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">C# (.NET)</span>
+                        <span class="tech-tag">SQL Server</span>
+                        <span class="tech-tag">Windows Forms</span>
+                        <span class="tech-tag">Facturation & Stock</span>
+                    </div>
+                </div>
+
+                <!-- Gestion des Ventes Sandbox -->
+                <div class="winforms-container" id="sandbox-gestion_ventes">
+                    <div class="winforms-titlebar">
+                        <div class="winforms-icon-title">
+                            <i class='bx bx-cart-alt'></i>
+                            <span>FormSales - Terminal de Vente & Inventaire</span>
+                        </div>
+                        <div class="winforms-controls">
+                            <button class="win-ctrl-btn">—</button>
+                            <button class="win-ctrl-btn">❑</button>
+                            <button class="win-ctrl-btn close">&times;</button>
+                        </div>
+                    </div>
+                    <div class="winforms-menubar">
+                        <span class="win-menu-item">Fichier</span>
+                        <span class="win-menu-item">Stock</span>
+                        <span class="win-menu-item">Rapports</span>
+                    </div>
+
+                    <!-- Client Area -->
+                    <div class="winforms-client">
+                        <!-- Alert Box -->
+                        <div id="msgbox-gestion_ventes" class="csharp-messagebox">
+                            <div class="cs-msg-title">Système de Ventes</div>
+                            <div class="cs-msg-body">
+                                <i class='bx bx-check-circle' style="color: #4caf50;"></i>
+                                <span id="msgbox-text-gestion_ventes">Facture générée !</span>
+                            </div>
+                            <div class="cs-msg-buttons">
+                                <button class="win-btn primary" onclick="closeMessageBox('gestion_ventes')">OK</button>
+                            </div>
+                        </div>
+
+                        <!-- KPI Dashboard -->
+                        <div class="kpi-container">
+                            <div class="kpi-card">
+                                <div>Chiffre d'Affaires</div>
+                                <div class="kpi-val" id="sales-total-ca">0 FCFA</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div>Transactions</div>
+                                <div class="kpi-val" id="sales-count-tx">0</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div>Niveau Stock (Total)</div>
+                                <div class="kpi-val" id="sales-stock-qty" style="color: #e65100;">120 pcs</div>
+                            </div>
+                        </div>
+
+                        <div class="win-form-row">
+                            <!-- Form -->
+                            <div class="win-panel" style="flex: 1;">
+                                <div class="win-panel-title">Saisir une Vente</div>
+                                <div style="margin-bottom: 8px;">
+                                    <label class="win-label">Produit</label>
+                                    <select id="sale-prod" class="win-combobox" onchange="salesUpdateUnitPrice()">
+                                        <option value="Laptop HP">Laptop HP EliteBook</option>
+                                        <option value="Écran Dell">Écran Dell 24"</option>
+                                        <option value="Clavier USB">Clavier USB Logitech</option>
+                                    </select>
+                                </div>
+                                <div style="margin-bottom: 8px;">
+                                    <label class="win-label">Prix Unitaire (FCFA)</label>
+                                    <input type="text" id="sale-prix" class="win-textbox" readonly value="450000">
+                                </div>
+                                <div style="margin-bottom: 12px;">
+                                    <label class="win-label">Quantité</label>
+                                    <input type="number" id="sale-qte" class="win-textbox" value="1" min="1">
+                                </div>
+                                <button class="win-btn primary" onclick="salesProcessOrder()">
+                                    <i class='bx bx-receipt'></i> Enregistrer Vente
+                                </button>
+                            </div>
+
+                            <!-- Cart Grid -->
+                            <div class="win-panel" style="flex: 2;">
+                                <div class="win-panel-title">Journal des Ventes de la Journée</div>
+                                <div class="grid-container">
+                                    <table class="win-datagridview" id="sales-grid">
+                                        <thead>
+                                            <tr>
+                                                <th>Numéro</th>
+                                                <th>Produit</th>
+                                                <th>Qte</th>
+                                                <th>Prix U.</th>
+                                                <th>Total (FCFA)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Dyn -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 3. MDIPARENT MYSQL METADATA & SIMULATION -->
+                <div class="project-meta-info" id="meta-mdi_parent" style="display: none;">
+                    <h2>MDIParent MySQL — Administration Multi-Fenêtres</h2>
+                    <p>
+                        Application Windows Forms implémentant l'architecture de conteneur de fenêtres enfants (MDI) et la connexion ADO.NET à un serveur de base de données MySQL distant pour administrer les entités.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">C# (.NET)</span>
+                        <span class="tech-tag">MySQL Database</span>
+                        <span class="tech-tag">Windows Forms</span>
+                        <span class="tech-tag">MDI Architecture</span>
+                    </div>
+                </div>
+
+                <!-- MDIParent Sandbox -->
+                <div class="winforms-container" id="sandbox-mdi_parent">
+                    <div class="winforms-titlebar">
+                        <div class="winforms-icon-title">
+                            <i class='bx bx-window-open'></i>
+                            <span>MDIParentMain - Application d'Administration MySQL</span>
+                        </div>
+                        <div class="winforms-controls">
+                            <button class="win-ctrl-btn">—</button>
+                            <button class="win-ctrl-btn">❑</button>
+                            <button class="win-ctrl-btn close">&times;</button>
+                        </div>
+                    </div>
+                    <div class="winforms-menubar">
+                        <span class="win-menu-item" onclick="openMdiWindow('formCat')">Gérer Catégories</span>
+                        <span class="win-menu-item" onclick="openMdiWindow('formProd')">Gérer Produits</span>
+                        <span class="win-menu-item" onclick="openMdiWindow('formEmp')">Gérer Employés</span>
+                    </div>
+
+                    <!-- Client Area (MDI Desktop Container) -->
+                    <div class="winforms-client" style="padding: 10px;">
+                        <div class="mdi-desktop" id="mdi-desktop-container">
+                            <p style="color: #888; text-align: center; margin-top: 180px; font-family: monospace; font-size: 11px;">
+                                [MDI Parent Client Area - Cliquez sur le menu pour charger des formulaires]
+                            </p>
+
+                            <!-- MDI Form 1: Categories -->
+                            <div class="mdi-child-window" id="formCat" style="top: 20px; left: 20px;">
+                                <div class="mdi-child-title">
+                                    <span>FormCategorie (MySQL Table: categorie)</span>
+                                    <button class="mdi-child-close" onclick="closeMdiWindow('formCat')">&times;</button>
+                                </div>
+                                <div class="mdi-child-body">
+                                    <div style="margin-bottom: 8px;">
+                                        <label class="win-label">Nom Catégorie</label>
+                                        <input type="text" class="win-textbox" id="mdi-cat-name" placeholder="ex: Informatique">
+                                    </div>
+                                    <button class="win-btn primary" onclick="alert('Connexion MySQL etablie. Categorie enregistree !')">Ajouter</button>
+                                </div>
+                            </div>
+
+                            <!-- MDI Form 2: Produits -->
+                            <div class="mdi-child-window" id="formProd" style="top: 80px; left: 100px;">
+                                <div class="mdi-child-title">
+                                    <span>FormProduit (MySQL Table: produit)</span>
+                                    <button class="mdi-child-close" onclick="closeMdiWindow('formProd')">&times;</button>
+                                </div>
+                                <div class="mdi-child-body">
+                                    <div style="margin-bottom: 6px;">
+                                        <label class="win-label">Libellé Produit</label>
+                                        <input type="text" class="win-textbox" placeholder="ex: Clavier">
+                                    </div>
+                                    <div style="margin-bottom: 8px;">
+                                        <label class="win-label">Catégorie ID</label>
+                                        <input type="number" class="win-textbox" placeholder="1">
+                                    </div>
+                                    <button class="win-btn primary" onclick="alert('INSERT INTO produit exécuté avec succès sur MySQL !')">Valider</button>
+                                </div>
+                            </div>
+
+                            <!-- MDI Form 3: Employes -->
+                            <div class="mdi-child-window" id="formEmp" style="top: 140px; left: 180px;">
+                                <div class="mdi-child-title">
+                                    <span>FormEmployee (MySQL Table: employee)</span>
+                                    <button class="mdi-child-close" onclick="closeMdiWindow('formEmp')">&times;</button>
+                                </div>
+                                <div class="mdi-child-body">
+                                    <div style="margin-bottom: 6px;">
+                                        <label class="win-label">Nom Complet</label>
+                                        <input type="text" class="win-textbox" placeholder="Alima Thiam">
+                                    </div>
+                                    <div style="margin-bottom: 8px;">
+                                        <label class="win-label">Poste</label>
+                                        <input type="text" class="win-textbox" placeholder="Développeuse C#">
+                                    </div>
+                                    <button class="win-btn primary" onclick="alert('Employé sauvegardé dans MySQL.')">Enregistrer</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. CRUD SCOLAIRE METADATA & SIMULATION -->
+                <div class="project-meta-info" id="meta-crud_scolaire" style="display: none;">
+                    <h2>CRUD Scolaire — Gestion Étudiants Simple</h2>
+                    <p>
+                        Application Windows Forms développée pour automatiser les tâches basiques d'administration scolaire en liant des champs d'édition (Nom, Prénom, Classe) directement aux transactions CRUD SQL Server.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">C# (.NET)</span>
+                        <span class="tech-tag">SQL Server</span>
+                        <span class="tech-tag">Windows Forms</span>
+                        <span class="tech-tag">Logic CRUD</span>
+                    </div>
+                </div>
+
+                <!-- CRUD Scolaire Sandbox -->
+                <div class="winforms-container" id="sandbox-crud_scolaire">
+                    <div class="winforms-titlebar">
+                        <div class="winforms-icon-title">
+                            <i class='bx bx-data'></i>
+                            <span>FormCrud - Administration des Candidatures Élèves</span>
+                        </div>
+                        <div class="winforms-controls">
+                            <button class="win-ctrl-btn">—</button>
+                            <button class="win-ctrl-btn">❑</button>
+                            <button class="win-ctrl-btn close">&times;</button>
+                        </div>
+                    </div>
+                    <div class="winforms-menubar">
+                        <span class="win-menu-item">Action</span>
+                        <span class="win-menu-item">Base de Données</span>
+                    </div>
+
+                    <!-- Client Area -->
+                    <div class="winforms-client">
+                        <!-- Alert Box -->
+                        <div id="msgbox-crud_scolaire" class="csharp-messagebox">
+                            <div class="cs-msg-title">Database CRUD</div>
+                            <div class="cs-msg-body">
+                                <i class='bx bx-check-shield' style="color: #2196f3; font-size: 24px;"></i>
+                                <span id="msgbox-text-crud_scolaire">Succès !</span>
+                            </div>
+                            <div class="cs-msg-buttons">
+                                <button class="win-btn primary" onclick="closeMessageBox('crud_scolaire')">OK</button>
+                            </div>
+                        </div>
+
+                        <div class="win-form-row">
+                            <div class="win-panel" style="flex: 1;">
+                                <div class="win-panel-title">Registre Étudiant</div>
+                                <input type="hidden" id="crud-id">
+                                <div style="margin-bottom: 8px;">
+                                    <label class="win-label">ID (Recherche)</label>
+                                    <input type="text" id="crud-id-show" class="win-textbox" readonly placeholder="Auto-ID">
+                                </div>
+                                <div style="margin-bottom: 8px;">
+                                    <label class="win-label">Nom</label>
+                                    <input type="text" id="crud-nom" class="win-textbox">
+                                </div>
+                                <div style="margin-bottom: 8px;">
+                                    <label class="win-label">Prénom</label>
+                                    <input type="text" id="crud-prenom" class="win-textbox">
+                                </div>
+                                <div style="margin-bottom: 12px;">
+                                    <label class="win-label">Classe</label>
+                                    <select id="crud-classe" class="win-combobox">
+                                        <option value="IAGE L3">IAGE L3</option>
+                                        <option value="GL L2">GL L2</option>
+                                        <option value="CD L1">CD L1</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                                    <button class="win-btn primary" onclick="crudCreate()">Ajouter</button>
+                                    <button class="win-btn" onclick="crudUpdate()">Modifier</button>
+                                    <button class="win-btn danger" onclick="crudDelete()">Supprimer</button>
+                                    <button class="win-btn" onclick="crudClear()">Effacer</button>
+                                </div>
+                            </div>
+
+                            <div class="win-panel" style="flex: 2;">
+                                <div class="win-panel-title">dataGridView1 (Détails des Étudiants)</div>
+                                <div class="grid-container">
+                                    <table class="win-datagridview" id="crud-grid">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Prénom</th>
+                                                <th>Nom</th>
+                                                <th>Classe</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Dyn -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <p style="font-size: 10px; color: #666; margin-top: 10px; font-style: italic;">
+                                    * Cliquez sur une ligne du tableau pour charger les données dans le formulaire d'édition.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Check URL Parameters to auto-load correct tab
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const project = urlParams.get('project');
+            if (project) {
+                switchProject(project);
+            } else {
+                initSimulators();
+            }
+        });
+
+        // Toggle project sandboxes
+        function switchProject(projectId) {
+            // Update active buttons
+            const btns = document.querySelectorAll('.tab-btn');
+            btns.forEach(btn => btn.classList.remove('active'));
+            
+            // Map keys
+            let key = '';
+            if (projectId === 'ges_school') key = 'GesSchool';
+            else if (projectId === 'gestion_ventes') key = 'Gestion des Ventes';
+            else if (projectId === 'mdi_parent') key = 'MDIParent MySQL';
+            else if (projectId === 'crud_scolaire') key = 'CRUD Scolaire';
+
+            // Find button based on text
+            btns.forEach(btn => {
+                if (btn.textContent.includes(key)) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Hide/Show metadata
+            const metas = document.querySelectorAll('.project-meta-info');
+            metas.forEach(meta => meta.style.display = 'none');
+            const targetMeta = document.getElementById(`meta-${projectId}`);
+            if (targetMeta) targetMeta.style.display = 'block';
+
+            // Hide/Show sandbox containers
+            const sandboxes = document.querySelectorAll('.winforms-container');
+            sandboxes.forEach(sb => sb.classList.remove('active'));
+            const targetSandbox = document.getElementById(`sandbox-${projectId}`);
+            if (targetSandbox) targetSandbox.classList.add('active');
+        }
+
+        // --- GLOBAL SIMULATORS DATA STATE ---
+        const gsClasses = [
+            { id: 1, libelle: "IAGE L3", niveau: "L3", specialite: "IAGE" },
+            { id: 2, libelle: "GL L2", niveau: "L2", specialite: "GL" }
+        ];
+
+        const gsEtudiants = [
+            { id: 1, prenom: "Mouhamed", nom: "Diop", annescolaire: 2026, classe: "IAGE L3", reglement: 600000, credit: 200000 },
+            { id: 2, prenom: "Khadija", nom: "Ndiaye", annescolaire: 2026, classe: "GL L2", reglement: 450000, credit: 350000 }
+        ];
+
+        const salesProducts = {
+            "Laptop HP": 450000,
+            "Écran Dell": 150000,
+            "Clavier USB": 15000
+        };
+
+        const salesOrders = [
+            { id: 1, produit: "Laptop HP", qte: 1, prixU: 450000, total: 450000 },
+            { id: 2, produit: "Clavier USB", qte: 2, prixU: 15000, total: 30000 }
+        ];
+
+        const crudStudents = [
+            { id: 1, prenom: "Moustapha", nom: "Sow", classe: "IAGE L3" },
+            { id: 2, prenom: "Fatou", nom: "Gaye", classe: "GL L2" }
+        ];
+
+        let selectedGsEtudiantId = null;
+        let selectedCrudId = null;
+
+        // Initialize lists and grids
+        function initSimulators() {
+            renderGesSchoolClasses();
+            renderGesSchoolEtudiants();
+            renderSalesGrid();
+            renderCrudGrid();
+            salesUpdateUnitPrice();
+        }
+
+        // --- C# MessageBox Helper ---
+        function showMessageBox(projectId, text) {
+            const msgbox = document.getElementById(`msgbox-${projectId}`);
+            const textEl = document.getElementById(`msgbox-text-${projectId}`);
+            if (msgbox && textEl) {
+                textEl.textContent = text;
+                msgbox.style.display = 'block';
+            }
+        }
+
+        function closeMessageBox(projectId) {
+            const msgbox = document.getElementById(`msgbox-${projectId}`);
+            if (msgbox) msgbox.style.display = 'none';
+        }
+
+        // --- GESSCHOOL LOGIC ---
+        function toggleGesSchoolForm(type) {
+            const classePanel = document.getElementById('gesschool-classe-panel');
+            const etudiantPanel = document.getElementById('gesschool-etudiant-panel');
+            const title = document.getElementById('gesschool-title');
+
+            if (type === 'classe') {
+                classePanel.style.display = 'block';
+                etudiantPanel.style.display = 'none';
+                title.textContent = "Form1 - Liste des Classes";
+            } else {
+                classePanel.style.display = 'none';
+                etudiantPanel.style.display = 'block';
+                title.textContent = "Form2 - Saisie des Étudiants";
+                populateGesSchoolClassesDropdown();
+            }
+        }
+
+        // Add default rows on launch
+        function renderGesSchoolClasses() {
+            const tbody = document.querySelector('#gs-classe-grid tbody');
+            tbody.innerHTML = '';
+            gsClasses.forEach(c => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td>${c.id}</td><td>${c.libelle}</td><td>${c.niveau}</td><td>${c.specialite}</td>`;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function populateGesSchoolClassesDropdown() {
+            const select = document.getElementById('gs-etud-classe');
+            select.innerHTML = '';
+            gsClasses.forEach(c => {
+                const opt = document.createElement('option');
+                opt.value = c.libelle;
+                opt.textContent = c.libelle;
+                select.appendChild(opt);
+            });
+        }
+
+        function renderGesSchoolEtudiants() {
+            const tbody = document.querySelector('#gs-etudiant-grid tbody');
+            tbody.innerHTML = '';
+            gsEtudiants.forEach(e => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td>${e.id}</td><td>${e.prenom}</td><td>${e.nom}</td><td>${e.annescolaire}</td><td>${e.classe}</td><td>${e.reglement}</td><td>${e.credit}</td>`;
+                tr.onclick = () => selectGsEtudiant(e.id, tr);
+                tbody.appendChild(tr);
+            });
+        }
+
+        function selectGsEtudiant(id, rowEl) {
+            selectedGsEtudiantId = id;
+            document.querySelectorAll('#gs-etudiant-grid tr').forEach(r => r.classList.remove('selected'));
+            rowEl.classList.add('selected');
+
+            const etud = gsEtudiants.find(e => e.id === id);
+            if (etud) {
+                document.getElementById('gs-nom').value = etud.nom;
+                document.getElementById('gs-prenom').value = etud.prenom;
+                document.getElementById('gs-anne').value = etud.annescolaire;
+                document.getElementById('gs-montant').value = etud.reglement;
+                document.getElementById('gs-credit').value = etud.credit;
+                document.getElementById('gs-etud-classe').value = etud.classe;
+            }
+        }
+
+        function gsSaveClasse() {
+            const spec = document.getElementById('gs-spec').value;
+            const niv = document.getElementById('gs-niv').value;
+            const id = gsClasses.length + 1;
+            const libelle = spec + " " + niv;
+
+            gsClasses.push({ id, libelle, niveau: niv, specialite: spec });
+            renderGesSchoolClasses();
+            showMessageBox('ges_school', "La classe est enregistrée avec Succès !");
+        }
+
+        function gsSaveEtudiant() {
+            const nom = document.getElementById('gs-nom').value.trim();
+            const prenom = document.getElementById('gs-prenom').value.trim();
+            const anne = parseInt(document.getElementById('gs-anne').value);
+            const montant = parseInt(document.getElementById('gs-montant').value);
+            const credit = parseInt(document.getElementById('gs-credit').value);
+            const classe = document.getElementById('gs-etud-classe').value;
+
+            if (!nom || !prenom) {
+                alert("Veuillez saisir le nom et prénom.");
+                return;
+            }
+
+            if (selectedGsEtudiantId !== null) {
+                // Update
+                const etud = gsEtudiants.find(e => e.id === selectedGsEtudiantId);
+                if (etud) {
+                    etud.nom = nom;
+                    etud.prenom = prenom;
+                    etud.annescolaire = anne;
+                    etud.reglement = montant;
+                    etud.credit = credit;
+                    etud.classe = classe;
+                    showMessageBox('ges_school', "Étudiant modifié avec Succès !");
+                }
+                selectedGsEtudiantId = null;
+            } else {
+                // Add
+                const id = gsEtudiants.length > 0 ? Math.max(...gsEtudiants.map(e => e.id)) + 1 : 1;
+                gsEtudiants.push({ id, prenom, nom, annescolaire: anne, classe, reglement: montant, credit });
+                showMessageBox('ges_school', "Étudiant enregistré avec Succès !");
+            }
+
+            // Clear
+            document.getElementById('gs-nom').value = '';
+            document.getElementById('gs-prenom').value = '';
+            renderGesSchoolEtudiants();
+        }
+
+        function gsDeleteEtudiant() {
+            if (selectedGsEtudiantId === null) {
+                alert("Veuillez sélectionner un étudiant dans la grille.");
+                return;
+            }
+
+            if (confirm("Voulez-vous supprimer l'étudiant sélectionné ?")) {
+                const index = gsEtudiants.findIndex(e => e.id === selectedGsEtudiantId);
+                if (index !== -1) {
+                    gsEtudiants.splice(index, 1);
+                    renderGesSchoolEtudiants();
+                    showMessageBox('ges_school', "Étudiant supprimé avec succès !");
+                }
+                selectedGsEtudiantId = null;
+            }
+        }
+
+        // --- GESTION DES VENTES LOGIC ---
+        function salesUpdateUnitPrice() {
+            const prod = document.getElementById('sale-prod').value;
+            const prix = salesProducts[prod];
+            document.getElementById('sale-prix').value = prix;
+        }
+
+        function renderSalesGrid() {
+            const tbody = document.querySelector('#sales-grid tbody');
+            tbody.innerHTML = '';
+            let totalCA = 0;
+            salesOrders.forEach(o => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td>TX-${o.id}</td><td>${o.produit}</td><td>${o.qte}</td><td>${o.prixU}</td><td>${o.total}</td>`;
+                tbody.appendChild(tr);
+                totalCA += o.total;
+            });
+
+            document.getElementById('sales-total-ca').textContent = `${totalCA.toLocaleString()} FCFA`;
+            document.getElementById('sales-count-tx').textContent = salesOrders.length;
+            
+            // Decr inventory mockup
+            const currentStock = 120 - salesOrders.reduce((acc, cur) => acc + cur.qte, 0);
+            document.getElementById('sales-stock-qty').textContent = `${currentStock} pcs`;
+        }
+
+        function salesProcessOrder() {
+            const prod = document.getElementById('sale-prod').value;
+            const prix = salesProducts[prod];
+            const qte = parseInt(document.getElementById('sale-qte').value);
+
+            if (qte <= 0) {
+                alert("Quantité invalide.");
+                return;
+            }
+
+            const id = salesOrders.length + 1;
+            const total = prix * qte;
+            salesOrders.push({ id, produit: prod, qte, prixU: prix, total });
+
+            renderSalesGrid();
+            showMessageBox('gestion_ventes', `Facture TX-${id} imprimée. Vente enregistrée !`);
+        }
+
+        // --- MDI PARENT LOGIC ---
+        function openMdiWindow(formId) {
+            // Reset description label
+            const desc = document.querySelector('.mdi-desktop p');
+            if (desc) desc.style.display = 'none';
+
+            // Show MDI child window
+            const win = document.getElementById(formId);
+            if (win) {
+                win.style.display = 'block';
+                win.style.zIndex = Math.max(...Array.from(document.querySelectorAll('.mdi-child-window')).map(w => parseInt(w.style.zIndex) || 10)) + 1;
+            }
+        }
+
+        function closeMdiWindow(formId) {
+            const win = document.getElementById(formId);
+            if (win) win.style.display = 'none';
+        }
+
+        // Drag MDI Windows (Simulated drag)
+        document.querySelectorAll('.mdi-child-window').forEach(win => {
+            const titleBar = win.querySelector('.mdi-child-title');
+            titleBar.addEventListener('mousedown', (e) => {
+                let offset = [
+                    win.offsetLeft - e.clientX,
+                    win.offsetTop - e.clientY
+                ];
+                
+                // Bring to front
+                const windows = document.querySelectorAll('.mdi-child-window');
+                windows.forEach(w => w.style.zIndex = 10);
+                win.style.zIndex = 20;
+
+                const moveHandler = (moveEvent) => {
+                    win.style.left = (moveEvent.clientX + offset[0]) + 'px';
+                    win.style.top = (moveEvent.clientY + offset[1]) + 'px';
+                };
+
+                const upHandler = () => {
+                    document.removeEventListener('mousemove', moveHandler);
+                    document.removeEventListener('mouseup', upHandler);
+                };
+
+                document.addEventListener('mousemove', moveHandler);
+                document.addEventListener('mouseup', upHandler);
+            });
+        });
+
+        // --- CRUD SCOLAIRE LOGIC ---
+        function renderCrudGrid() {
+            const tbody = document.querySelector('#crud-grid tbody');
+            tbody.innerHTML = '';
+            crudStudents.forEach(s => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td>${s.id}</td><td>${s.prenom}</td><td>${s.nom}</td><td>${s.classe}</td>`;
+                tr.onclick = () => selectCrudRow(s.id, tr);
+                tbody.appendChild(tr);
+            });
+        }
+
+        function selectCrudRow(id, rowEl) {
+            selectedCrudId = id;
+            document.querySelectorAll('#crud-grid tr').forEach(r => r.classList.remove('selected'));
+            rowEl.classList.add('selected');
+
+            const std = crudStudents.find(s => s.id === id);
+            if (std) {
+                document.getElementById('crud-id-show').value = std.id;
+                document.getElementById('crud-nom').value = std.nom;
+                document.getElementById('crud-prenom').value = std.prenom;
+                document.getElementById('crud-classe').value = std.classe;
+            }
+        }
+
+        function crudCreate() {
+            const nom = document.getElementById('crud-nom').value.trim();
+            const prenom = document.getElementById('crud-prenom').value.trim();
+            const classe = document.getElementById('crud-classe').value;
+
+            if (!nom || !prenom) {
+                alert("Veuillez remplir le nom et le prénom.");
+                return;
+            }
+
+            const id = crudStudents.length > 0 ? Math.max(...crudStudents.map(s => s.id)) + 1 : 1;
+            crudStudents.push({ id, prenom, nom, classe });
+            renderCrudGrid();
+            crudClear();
+            showMessageBox('crud_scolaire', "Ajout réussi dans la base de données SQL Server.");
+        }
+
+        // Modify action
+        function crudUpdate() {
+            if (selectedCrudId === null) {
+                alert("Sélectionnez d'abord un étudiant dans la grille.");
+                return;
+            }
+
+            const nom = document.getElementById('crud-nom').value.trim();
+            const prenom = document.getElementById('crud-prenom').value.trim();
+            const classe = document.getElementById('crud-classe').value;
+
+            const std = crudStudents.find(s => s.id === selectedCrudId);
+            if (std) {
+                std.nom = nom;
+                std.prenom = prenom;
+                std.classe = classe;
+                renderCrudGrid();
+                crudClear();
+                showMessageBox('crud_scolaire', "Modification réussie dans la base de données !");
+            }
+        }
+
+        // Delete action
+        function crudDelete() {
+            if (selectedCrudId === null) {
+                alert("Sélectionnez d'abord un étudiant dans la grille.");
+                return;
+            }
+
+            if (confirm("Voulez-vous supprimer l'étudiant sélectionné ?")) {
+                const idx = crudStudents.findIndex(s => s.id === selectedCrudId);
+                if (idx !== -1) {
+                    crudStudents.splice(idx, 1);
+                    renderCrudGrid();
+                    crudClear();
+                    showMessageBox('crud_scolaire', "Suppression réussie de l'étudiant de la base.");
+                }
+            }
+        }
+
+        // Clear action
+        function crudClear() {
+            selectedCrudId = null;
+            document.getElementById('crud-id-show').value = '';
+            document.getElementById('crud-nom').value = '';
+            document.getElementById('crud-prenom').value = '';
+            document.querySelectorAll('#crud-grid tr').forEach(r => r.classList.remove('selected'));
+        }
+
+        // Initialize state
+        initSimulators();
+    </script>
+</body>
+</html>
