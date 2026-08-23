@@ -257,7 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // 3. DARK / LIGHT THEME TOGGLE
-    const savedTheme = localStorage.getItem("portfolio-theme") || "dark";
+    const savedTheme = localStorage.getItem("portfolio-theme") || "light";
     document.documentElement.setAttribute("data-theme", savedTheme);
 
     themeToggle.addEventListener("click", () => {
