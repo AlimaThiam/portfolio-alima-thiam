@@ -16,7 +16,7 @@ const projectsData = {
         ],
         techs: ["PHP", "Laravel", "MySQL", "Bootstrap", "Composer", "Git"],
         demoLink: "#",
-        repoLink: "https://github.com"
+        repoLink: "https://github.com/AlimaThiam"
     },
     "2": {
         title: "PortalRH",
@@ -32,7 +32,7 @@ const projectsData = {
         ],
         techs: ["C#", ".NET Core 8", "Entity Framework", "SQL Server", "HTML5/CSS3", "JavaScript"],
         demoLink: "#",
-        repoLink: "https://github.com"
+        repoLink: "https://github.com/AlimaThiam"
     },
     "3": {
         title: "Sales Analytics Dashboard",
@@ -48,7 +48,138 @@ const projectsData = {
         ],
         techs: ["Power BI", "SQL Server", "DAX", "T-SQL", "Power Query", "Modélisation en étoile"],
         demoLink: "#",
-        repoLink: "https://github.com"
+        repoLink: "https://github.com/AlimaThiam"
+    },
+    "4": {
+        title: "Valentine Site",
+        tag: "HTML5 / CSS3 / JavaScript",
+        image: "assets/valentine_site.jpg",
+        description: "Un site internet interactif et romantique créé spécialement pour la Saint-Valentin. Ce projet met en valeur des animations fluides en CSS, des effets interactifs en JavaScript et une esthétique soignée et dynamique.",
+        features: [
+            "Animations de cœurs et transitions douces en CSS pur",
+            "Boutons interactifs avec logique de réponse dynamique en JavaScript",
+            "Rendu entièrement responsive pour mobiles et tablettes",
+            "Thématique de couleurs harmonieuse (dégradés rose, rouge et blanc)"
+        ],
+        techs: ["HTML5", "CSS3", "JavaScript", "Animations CSS", "Git"],
+        demoLink: "https://alimathiam.github.io/valentine-site/",
+        repoLink: "https://github.com/AlimaThiam/valentine-site"
+    },
+    "5": {
+        title: "Neenawaw",
+        tag: "HTML5 / CSS3 / JavaScript",
+        image: "assets/neenawaw.jpg",
+        description: "Un site web interactif et personnalisé créé pour une amie, racontant son histoire d'amour depuis sa rencontre avec son partenaire jusqu'à la demande en mariage. Il intègre une annonce officielle de mariage, un compte à rebours dynamique et une carte pour la localisation.",
+        features: [
+            "Storytelling interactif retraçant le parcours de vie du couple",
+            "Annonce interactive de la demande en mariage et de la date",
+            "Compte à rebours dynamique en temps réel avant le jour J",
+            "Intégration d'une carte interactive (Maps) pour guider les invités vers le lieu de l'événement",
+            "Mise en page thématique avec des animations douces et romantiques"
+        ],
+        techs: ["HTML5", "CSS3", "JavaScript", "Google Maps API", "Countdown Timer", "Git"],
+        demoLink: "https://alimathiam.github.io/neenawaw/",
+        repoLink: "https://github.com/AlimaThiam/neenawaw"
+    },
+    "6": {
+        title: "Portfolio Personnel",
+        tag: "HTML5 / CSS3 / JavaScript",
+        image: "assets/portfolio_site.png",
+        description: "Conception et développement de ce portfolio professionnel complet. Il sert de vitrine pour présenter mes compétences mixtes en informatique de gestion, développement d'applications, comptabilité et bases de données.",
+        features: [
+            "Design system moderne avec mode sombre et clair dynamique",
+            "Effet d'écriture dynamique en JavaScript (typing effect) pour les rôles",
+            "Formulaire de contact AJAX entièrement connecté et opérationnel avec FormSubmit",
+            "Grille de projets avec filtres de catégories interactifs",
+            "Modales de détails pour chaque projet avec animations de zoom"
+        ],
+        techs: ["HTML5", "CSS3", "JavaScript", "FormSubmit API", "Git", "Design System"],
+        demoLink: "https://alimathiam.github.io/portfolio-alima-thiam/",
+        repoLink: "https://github.com/AlimaThiam/portfolio-alima-thiam"
+    },
+    "7": {
+        title: "Yaram Jangat",
+        tag: "WinDev / HFSQL / WLanguage",
+        image: "assets/yaram_jangat.png",
+        description: "Études et mise en place d'une application de bureau robuste pour la gestion des rendez-vous et le suivi médical des patients. Réalisé et soutenu avec succès dans le cadre de ma soutenance de fin d'études.",
+        features: [
+            "Gestion des fiches d'informations patients et de leur dossier médical complet",
+            "Planification et suivi des rendez-vous et motifs de consultation",
+            "Module complet de consultation (diagnostics, traitements et ordonnances)",
+            "Base de données relationnelle locale performante sous HFSQL",
+            "Génération d'ordonnances imprimables et d'états de visites",
+            "Requêtes personnalisées et statistiques sur l'activité de la clinique"
+        ],
+        perspectives: [
+            "Architecture Back-Office : L'application développée sous WinDev se concentre sur le Back-Office (les fonctionnalités internes pour les médecins et secrétaires). L'accès direct du patient (Front-Office) a été modélisé dans le mémoire et constitue une perspective d'évolution.",
+            "Partiellement atteint : Implémenter l'exportation des dossiers médicaux au format Excel pour les utilisateurs.",
+            "Partiellement atteint : Peaufiner et intégrer pleinement l'envoi de rappels automatiques pour les rendez-vous et prises de médicaments.",
+            "À développer : Compléter la phase de développement du système d'alertes en temps réel pour le suivi et le renouvellement des prescriptions thérapeutiques."
+        ],
+        techs: ["WinDev 25", "WLanguage", "HFSQL", "Modélisation de données", "Conception d'IHM", "Génération d'États"],
+        demoLink: "yaram_jangat_demo.html",
+        repoLink: "https://github.com/AlimaThiam/YaramJangat"
+    },
+    "8": {
+        title: "GesSchool",
+        tag: "C# / SQL Server / Windows Forms",
+        image: "assets/ges_school.jpg",
+        description: "Application de bureau de gestion d'établissement scolaire développée en C#. Elle permet de piloter l'administration des élèves, l'organisation des classes, les inscriptions et le suivi des notes.",
+        features: [
+            "Gestion complète des inscriptions et réinscriptions des élèves",
+            "Organisation et administration des classes et des départements scolaires",
+            "Attribution des matières d'enseignement et gestion des enseignants",
+            "Saisie et calcul automatique des moyennes avec édition des bulletins de notes",
+            "Base de données SQL Server structurée pour assurer la persistance et l'intégrité des informations"
+        ],
+        techs: ["C#", "SQL Server", "Windows Forms", "ADO.NET", "Visual Studio"],
+        demoLink: "#",
+        repoLink: "https://github.com/AlimaThiam/GesSchool"
+    },
+    "9": {
+        title: "Gestion des Ventes",
+        tag: "C# / Windows Forms / SQL Server",
+        image: "assets/gestion_ventes.jpg",
+        description: "Logiciel Windows Form d'administration des ventes et de suivi d'inventaire. Conçu pour automatiser la facturation et le suivi de performance commerciale d'une entreprise.",
+        features: [
+            "Enregistrement et suivi des transactions commerciales et ventes au quotidien",
+            "Suivi des niveaux de stocks en temps réel avec alertes de réapprovisionnement",
+            "Génération et édition de factures de vente au format imprimable",
+            "Rapports de ventes et suivi du chiffre d'affaires global"
+        ],
+        techs: ["C#", "SQL Server", "Windows Forms", "ADO.NET", "Génération d'États"],
+        demoLink: "#",
+        repoLink: "https://github.com/AlimaThiam/gestiondesventes"
+    },
+    "10": {
+        title: "MDIParent MySQL",
+        tag: "C# / MySQL / Windows Forms",
+        image: "assets/mdi_parent_mysql.jpg",
+        description: "Application multi-fenêtres (MDI - Multiple Document Interface) connectée à une base de données MySQL. Ce projet met en valeur la conception d'interfaces de gestion centralisées et fluides.",
+        features: [
+            "Architecture multi-fenêtres (MDI) permettant d'ouvrir plusieurs modules enfants simultanément",
+            "Connexion ADO.NET dynamique à un serveur de base de données relationnelle MySQL",
+            "Interface d'administration centralisée avec barre de navigation et menu dynamique",
+            "Optimisation des requêtes SQL de lecture et d'écriture"
+        ],
+        techs: ["C#", "MySQL", "MDI Architecture", "ADO.NET", "SQL Server"],
+        demoLink: "#",
+        repoLink: "https://github.com/AlimaThiam/MDIParentMySQL"
+    },
+    "11": {
+        title: "CRUD Scolaire",
+        tag: "C# / Windows Forms / SQL Server",
+        image: "assets/crud_scolaire.jpg",
+        description: "Un projet pratique de gestion d'étudiants implémentant les opérations fondamentales de création, lecture, mise à jour et suppression (CRUD).",
+        features: [
+            "Opérations CRUD complètes (Create, Read, Update, Delete) sur la table des étudiants",
+            "Formulaire de saisie dynamique avec contrôle de validité des champs de saisie",
+            "Grid View réactif pour la consultation et le filtrage rapide des dossiers élèves",
+            "Logique d'accès aux données optimisée avec SQL Server"
+        ],
+        techs: ["C#", "SQL Server", "Windows Forms", "ADO.NET", "CRUD Logic"],
+        demoLink: "#",
+        repoLink: "https://github.com/AlimaThiam/crudscolaire"
     }
 };
 
@@ -140,10 +271,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const typingTextElement = document.querySelector(".typing-text");
     if (typingTextElement) {
         const roles = [
-            "Technicienne Supérieure en Informatique de Gestion",
-            "Développeuse d'Applications Métiers (C# / PHP)",
-            "Spécialiste Bases de Données (SQL)",
-            "Analyste de Données & BI (Power BI)"
+            "Développeuse Web & Mobile",
+            "Double Diplômée en Informatique (ISI / UNCHK)",
+            "Spécialiste en Informatique de Gestion",
+            "Développeuse d'Applications Métiers"
         ];
         
         let roleIndex = 0;
@@ -242,6 +373,21 @@ document.addEventListener("DOMContentLoaded", () => {
                     featuresList.appendChild(li);
                 });
 
+                // Remplissage des perspectives (si présentes)
+                const perspectivesSection = document.getElementById("modal-project-perspectives-section");
+                const perspectivesList = document.getElementById("modal-project-perspectives");
+                if (data.perspectives && data.perspectives.length > 0) {
+                    perspectivesSection.style.display = "block";
+                    perspectivesList.innerHTML = "";
+                    data.perspectives.forEach(persp => {
+                        const li = document.createElement("li");
+                        li.textContent = persp;
+                        perspectivesList.appendChild(li);
+                    });
+                } else {
+                    perspectivesSection.style.display = "none";
+                }
+
                 // Remplissage des technos
                 const techsContainer = document.getElementById("modal-project-techs");
                 techsContainer.innerHTML = "";
@@ -254,9 +400,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Remplissage des boutons d'actions
                 const linksContainer = document.getElementById("modal-project-links");
+                const isRealDemo = data.demoLink !== "#";
                 linksContainer.innerHTML = `
                     <a href="${data.repoLink}" target="_blank" class="btn btn-secondary"><i class='bx bxl-github'></i> Code Source</a>
-                    <a href="${data.demoLink}" class="btn btn-primary" onclick="alert('Ceci est une simulation de démonstration en local.'); return false;"><i class='bx bx-link-external'></i> Démo Live</a>
+                    <a href="${data.demoLink}" ${isRealDemo ? 'target="_blank"' : 'onclick="alert(\'Ceci est une simulation de démonstration en local.\'); return false;"'} class="btn btn-primary"><i class='bx bx-link-external'></i> Démo Live</a>
                 `;
 
                 // Ouverture de la modale
@@ -299,29 +446,56 @@ document.addEventListener("DOMContentLoaded", () => {
             formStatus.textContent = "";
             formStatus.className = "form-status";
 
-            // Simulation d'envoi réseau (1.5 seconde)
-            setTimeout(() => {
+            const data = new FormData(contactForm);
+            const jsonObject = Object.fromEntries(data.entries());
+
+            // Envoi de la requête AJAX à FormSubmit
+            fetch("https://formsubmit.co/ajax/alimathiam48@gmail.com", {
+                method: "POST",
+                body: JSON.stringify(jsonObject),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalBtnContent;
                 
-                // Statut de succès
-                formStatus.textContent = "Message envoyé avec succès ! Merci de m'avoir contactée, je vous répondrai dans les plus brefs délais.";
-                formStatus.classList.add("success");
-                
-                // Réinitialiser le formulaire
-                contactForm.reset();
-                
-                // Masquer le message après 6 secondes
-                setTimeout(() => {
-                    formStatus.style.opacity = "0";
-                    formStatus.style.transition = "opacity 0.5s ease";
+                if (response.ok) {
+                    response.json().then(resData => {
+                        console.log("FormSubmit Response:", resData);
+                    });
+                    formStatus.textContent = "Message envoyé avec succès ! Merci de m'avoir contactée, je vous répondrai dans les plus brefs délais.";
+                    formStatus.className = "form-status success";
+                    contactForm.reset();
+                    
+                    // Masquer le message après 6 secondes
                     setTimeout(() => {
-                        formStatus.textContent = "";
-                        formStatus.style.opacity = "1";
-                    }, 500);
-                }, 6000);
-                
-            }, 1500);
+                        formStatus.style.opacity = "0";
+                        formStatus.style.transition = "opacity 0.5s ease";
+                        setTimeout(() => {
+                            formStatus.textContent = "";
+                            formStatus.style.opacity = "1";
+                        }, 500);
+                    }, 6000);
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            formStatus.textContent = data.errors.map(error => error.message).join(", ");
+                        } else {
+                            formStatus.textContent = "Une erreur est survenue lors de l'envoi du message.";
+                        }
+                    });
+                    formStatus.className = "form-status error";
+                }
+            })
+            .catch(error => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnContent;
+                formStatus.textContent = "Une erreur réseau est survenue. Veuillez réessayer plus tard.";
+                formStatus.className = "form-status error";
+            });
         });
     }
 
