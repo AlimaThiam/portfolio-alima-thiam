@@ -119,12 +119,26 @@ body { font-family:'Outfit',sans-serif; background:#f0f0f0; color:#222; font-siz
   padding:3px 9px; border-radius:20px;
   margin:0 4px 5px 0;
 }
+.dl-btn { text-align:center; padding:18px 0 12px; }
+.dl-btn button {
+  background:#4b47b0; color:white; border:none;
+  padding:10px 28px; border-radius:25px; font-size:13px;
+  font-family:'Outfit',sans-serif; font-weight:600; cursor:pointer;
+  display:inline-flex; align-items:center; gap:8px;
+  transition:opacity 0.2s;
+}
+.dl-btn button:hover { opacity:0.85; }
+@media print { .dl-btn { display:none; } }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
 
+<div class="dl-btn">
+  <button onclick="downloadCV()">&#11015;&#65039; Telecharger le CV en PDF</button>
+</div>
 
-<div class="page">
+<div class="page" id="cv-page">
 
   <!-- HEADER -->
   <div class="cv-header">
@@ -293,6 +307,20 @@ body { font-family:'Outfit',sans-serif; background:#f0f0f0; color:#222; font-siz
     </div>
   </div>
 </div>
+
+<script>
+function downloadCV() {
+  const element = document.getElementById('cv-page');
+  const opt = {
+    margin: 0,
+    filename: 'CV_Alima_Thiam_Mobile.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2, useCORS: true },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+  };
+  html2pdf().set(opt).from(element).save();
+}
+</script>
 
 </body>
 </html>
