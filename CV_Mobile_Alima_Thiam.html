@@ -143,7 +143,9 @@ body { font-family:'Outfit',sans-serif; background:#f0f0f0; color:#222; font-siz
 <body>
 
 <div class="dl-btn">
-  <button onclick="downloadCV()">&#11015;&#65039; Telecharger le CV en PDF</button>
+  <a href="CV_Alima_Thiam_Mobile.pdf" download="CV_Alima_Thiam_Mobile.pdf" style="text-decoration:none;">
+    <button type="button">&#11015;&#65039; Telecharger le CV en PDF</button>
+  </a>
 </div>
 
 <div class="page" id="cv-page">
@@ -334,16 +336,14 @@ body { font-family:'Outfit',sans-serif; background:#f0f0f0; color:#222; font-siz
 function downloadCV() {
   const element = document.getElementById('cv-page');
   const opt = {
-    margin: 0,
+    margin: [5, 5, 5, 5],
     filename: 'CV_Alima_Thiam_Mobile.pdf',
     image: { type: 'jpeg', quality: 0.98 },
     html2canvas: { 
       scale: 2, 
       useCORS: true, 
       letterRendering: true,
-      scrollX: 0,
-      scrollY: 0,
-      windowWidth: 1024
+      scrollY: 0
     },
     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
   };
