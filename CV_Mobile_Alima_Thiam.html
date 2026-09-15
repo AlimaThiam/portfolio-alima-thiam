@@ -18,7 +18,7 @@ body { font-family:'Outfit',sans-serif; background:#f0f0f0; color:#222; font-siz
 
 /* PAGE */
 .page {
-  max-width:800px; margin:0 auto 30px;
+  width:794px; margin:0 auto 30px;
   background:white; border-radius:8px;
   box-shadow:0 4px 20px rgba(0,0,0,0.08);
   overflow:hidden;
@@ -26,7 +26,7 @@ body { font-family:'Outfit',sans-serif; background:#f0f0f0; color:#222; font-siz
 
 /* HEADER */
 .cv-header {
-  padding:20px 30px 14px;
+  padding:20px 28px 14px;
   border-bottom:2.5px solid #4b47b0;
 }
 .cv-header h1 { font-size:23px; font-weight:700; color:#1a1a2e; }
@@ -40,14 +40,14 @@ body { font-family:'Outfit',sans-serif; background:#f0f0f0; color:#222; font-siz
 .cv-header .contacts a { display:flex; align-items:center; gap:4px; }
 
 /* BODY */
-.cv-body { display:grid; grid-template-columns:1fr 240px; }
+.cv-body { display:grid; grid-template-columns:1fr 230px; }
 
 /* MAIN */
-.col-main { padding:18px 25px 18px 30px; }
+.col-main { padding:16px 22px 16px 28px; }
 
 /* SIDE */
 .col-side {
-  padding:18px 20px;
+  padding:16px 18px 16px 18px;
   background:#f7f7fb;
   border-left:1px solid #e8e8f0;
 }
@@ -337,7 +337,14 @@ function downloadCV() {
     margin: 0,
     filename: 'CV_Alima_Thiam_Mobile.pdf',
     image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2, useCORS: true },
+    html2canvas: { 
+      scale: 2, 
+      useCORS: true, 
+      letterRendering: true,
+      scrollX: 0,
+      scrollY: 0,
+      windowWidth: 1024
+    },
     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
   };
   html2pdf().set(opt).from(element).save();
