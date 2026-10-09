@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV Études - Alima Thiam</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Outfit',sans-serif; background:#f0f0f0; color:#222; font-size:12px; line-height:1.45; }
+
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+  body { background:white; }
+  .page { box-shadow:none; margin:0; border-radius:0; width:210mm !important; height:297mm !important; min-height:297mm !important; max-height:297mm !important; }
+  .dl-btn { display:none !important; }
+}
+
+/* PAGE (A4 portrait) */
+.page {
+  width:210mm;
+  min-height:297mm;
+  max-height:297mm;
+  margin:0 auto 30px;
+  background:white;
+  border-radius:4px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.08);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+
+/* HEADER */
+.cv-header {
+  padding:18px 28px 12px;
+  border-bottom:2.5px solid #4b47b0;
+}
+.cv-header h1 { font-size:23px; font-weight:700; color:#1a1a2e; }
+.cv-header .role { font-size:12.5px; color:#4b47b0; font-weight:600; margin-top:2px; }
+.cv-header .contacts {
+  display:flex; flex-wrap:wrap; gap:12px;
+  margin-top:8px; font-size:11px; color:#555;
+}
+.cv-header .contacts > * + *::before { content:"·"; margin-right:12px; color:#4b47b0; }
+.cv-header .contacts a { color:#555; text-decoration:none; }
+
+/* BODY */
+.cv-body { display:grid; grid-template-columns:1fr 215px; flex:1; }
+.col-main { padding:13px 20px 12px 28px; }
+.col-side {
+  padding:13px 16px 12px 16px;
+  background:#f7f7fb;
+  border-left:1px solid #e8e8f0;
+}
+
+/* SECTION */
+.sec { margin-bottom:11px; }
+.sec:last-child { margin-bottom:0; }
+.sec-title, .side-title {
+  font-size:9.5px; font-weight:700; text-transform:uppercase;
+  letter-spacing:1.5px; color:#4b47b0;
+  border-bottom:1px solid #dddaf8;
+  padding-bottom:3px; margin-bottom:7px;
+}
+.profil { font-size:11px; color:#444; line-height:1.45; }
+
+/* ITEMS (formations, expériences, projets) */
+.exp { margin-bottom:7px; }
+.exp:last-child { margin-bottom:0; }
+.exp-top { display:flex; justify-content:space-between; align-items:flex-start; gap:6px; }
+.exp-title { font-size:11.5px; font-weight:600; color:#1a1a2e; line-height:1.2; }
+.exp-date {
+  font-size:9.5px; color:#4b47b0; font-weight:600;
+  background:#eeeeff; padding:1px 6px; border-radius:12px;
+  white-space:nowrap; flex-shrink:0;
+}
+.exp-co { font-size:10.5px; color:#4b47b0; font-weight:500; margin:1px 0 2px; }
+.exp-bullets { list-style:none; }
+.exp-bullets li {
+  font-size:10.5px; color:#555; line-height:1.33;
+  padding-left:10px; position:relative;
+}
+.exp-bullets li::before { content:"-"; position:absolute; left:0; color:#4b47b0; }
+.exp-bullets strong { color:#1a1a2e; font-weight:600; }
+
+/* SIDE */
+.side-sec { margin-bottom:11px; }
+.side-sec:last-child { margin-bottom:0; }
+.side-sub {
+  font-size:9.5px; font-weight:700; color:#888; margin:7px 0 4px;
+  text-transform:uppercase; letter-spacing:1px;
+}
+.side-sub:first-of-type { margin-top:0; }
+.tag {
+  display:inline-block; background:#eeeeff; color:#4b47b0;
+  font-size:9.8px; font-weight:500;
+  padding:1px 7px; border-radius:12px;
+  margin:0 3px 4px 0;
+}
+.lang { display:flex; justify-content:space-between; margin-bottom:3px; font-size:10.5px; }
+.lang-lv { font-size:9.8px; color:#4b47b0; font-weight:600; }
+.side-list { list-style:none; }
+.side-list li { font-size:10.3px; color:#444; line-height:1.35; margin-bottom:4px; padding-left:9px; position:relative; }
+.side-list li::before { content:"-"; position:absolute; left:0; color:#4b47b0; }
+
+.dl-btn { text-align:center; padding:14px 0 10px; }
+.dl-btn button {
+  background:#4b47b0; color:white; border:none;
+  padding:8px 22px; border-radius:20px; font-size:12.5px;
+  font-family:'Outfit',sans-serif; font-weight:600; cursor:pointer;
+  box-shadow:0 2px 10px rgba(75,71,176,0.3);
+}
+.dl-btn button:hover { opacity:0.85; }
+</style>
+</head>
+<body>
+
+<div class="dl-btn">
+  <a href="CV_Etudes_Alima_Thiam.pdf" download="CV_Etudes_Alima_Thiam.pdf" style="text-decoration:none;">
+    <button type="button">&#11015;&#65039; Télécharger le CV en PDF</button>
+  </a>
+</div>
+
+<div class="page" id="cv-page">
+
+  <!-- EN-TÊTE -->
+  <div class="cv-header">
+    <h1>Alima THIAM</h1>
+    <div class="role">Double licence Informatique de gestion &amp; Développement web et mobile &mdash; Projet : Master MIAGE / Systèmes d'information</div>
+    <div class="contacts">
+      <span>Tivaouane Peulh, Dakar, Sénégal</span>
+      <a href="tel:+221776847316">+221 77 684 73 16</a>
+      <a href="mailto:alimathiam48@gmail.com">alimathiam48@gmail.com</a>
+      <a href="https://alimathiam.github.io/portfolio-alima-thiam/" target="_blank">Portfolio : alimathiam.github.io/portfolio-alima-thiam</a>
+    </div>
+  </div>
+
+  <div class="cv-body">
+
+    <!-- COLONNE PRINCIPALE -->
+    <div class="col-main">
+
+      <div class="sec">
+        <div class="sec-title">Profil</div>
+        <p class="profil">
+          Titulaire de deux licences complémentaires, en informatique de gestion et en développement d'applications,
+          je souhaite poursuivre en Master MIAGE pour devenir cheffe de projet ou consultante en systèmes d'information.
+          Cinq stages en entreprise (SENELEC, Hôpital Principal de Dakar) m'ont permis de relier développement,
+          gestion et besoins des utilisateurs. Intérêt marqué pour les données et l'intelligence artificielle.
+        </p>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">Formations</div>
+
+        <div class="exp">
+          <div class="exp-top">
+            <div class="exp-title">Licence Développement d'applications web et mobile (LIDA)</div>
+            <div class="exp-date">2021 &ndash; 2024</div>
+          </div>
+          <div class="exp-co">Université numérique Cheikh Hamidou Kane (UNCHK), Dakar</div>
+          <ul class="exp-bullets">
+            <li>Licence 3 : <strong>17,20/20</strong> (semestre 5) et <strong>18/20</strong> (semestre 6, stage et projet)</li>
+            <li>Programmation (C, Java, PHP, JavaScript), bases de données et SQL, architectures logicielles web et mobile, sécurité des applications</li>
+          </ul>
+        </div>
+
+        <div class="exp">
+          <div class="exp-top">
+            <div class="exp-title">Licence Informatique Appliquée à la Gestion des Entreprises (IAGE)</div>
+            <div class="exp-date">2021 &ndash; 2024</div>
+          </div>
+          <div class="exp-co">Institut Supérieur d'Informatique (ISI), Dakar</div>
+          <ul class="exp-bullets">
+            <li>Programmation (Python, Java, C#), analyse et conception de systèmes d'information, administration de bases de données</li>
+            <li>Comptabilité générale et analytique, analyse financière, probabilités et statistiques, gestion de projet</li>
+          </ul>
+        </div>
+
+        <div class="exp">
+          <div class="exp-top">
+            <div class="exp-title">Baccalauréat série L2 (Sciences sociales et humaines)</div>
+            <div class="exp-date">2021</div>
+          </div>
+          <div class="exp-co">Groupe scolaire Les Pédagogues, Dakar</div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">Expériences professionnelles (stages)</div>
+
+        <div class="exp">
+          <div class="exp-top">
+            <div class="exp-title">Stage &ndash; Développement d'application web et mobile</div>
+            <div class="exp-date">Juin &ndash; Sept. 2026</div>
+          </div>
+          <div class="exp-co">SENELEC (Société nationale d'électricité du Sénégal)</div>
+          <ul class="exp-bullets">
+            <li>Participation à la conception et au développement d'une application GMAO (gestion de la maintenance)</li>
+            <li>Travail en équipe, de la conception aux tests, dans le respect des délais et procédures de projet</li>
+          </ul>
+        </div>
+
+        <div class="exp">
+          <div class="exp-top">
+            <div class="exp-title">Stage &ndash; Administration et gestion financière</div>
+            <div class="exp-date">Févr. &ndash; Avr. 2026</div>
+          </div>
+          <div class="exp-co">Hôpital Principal de Dakar &mdash; Caisse centrale</div>
+          <ul class="exp-bullets">
+            <li>Facturation des soins externes, identification des patients (NUP), suivi des créances et archivage</li>
+          </ul>
+        </div>
+
+        <div class="exp">
+          <div class="exp-top">
+            <div class="exp-title">Stage &ndash; Développement d'application web et mobile</div>
+            <div class="exp-date">Oct. &ndash; Nov. 2025</div>
+          </div>
+          <div class="exp-co">SENELEC</div>
+          <ul class="exp-bullets">
+            <li>Développement de modules métier d'une application de gestion selon des spécifications fonctionnelles</li>
+          </ul>
+        </div>
+
+        <div class="exp">
+          <div class="exp-top">
+            <div class="exp-title">Stage &ndash; Comptabilité (recouvrement et trésorerie)</div>
+            <div class="exp-date">Sept. 2025</div>
+          </div>
+          <div class="exp-co">Hôpital Principal de Dakar</div>
+          <ul class="exp-bullets">
+            <li>Contrôle et pointage des factures et règlements, suivi des chèques et des créances patients</li>
+          </ul>
+        </div>
+
+        <div class="exp">
+          <div class="exp-top">
+            <div class="exp-title">Stage &ndash; Informatique et support technique</div>
+            <div class="exp-date">Sept. &ndash; Nov. 2023</div>
+          </div>
+          <div class="exp-co">Hôpital Principal de Dakar &mdash; Service informatique</div>
+          <ul class="exp-bullets">
+            <li>Maintenance du parc informatique, installation des postes, assistance aux utilisateurs</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">Projets réalisés</div>
+        <ul class="exp-bullets">
+          <li><strong>E-Stock Manager</strong> (PHP/Laravel, MySQL) : gestion de stock, facturation et commandes pour une PME</li>
+          <li><strong>PortalRH</strong> (C#/.NET Core, SQL Server) : portail RH de congés et notes de frais avec validation</li>
+          <li><strong>Sales Analytics Dashboard</strong> (Power BI, SQL Server) : tableau de bord de suivi des ventes</li>
+          <li><strong>Yaram Jangat</strong> (WinDev, HFSQL) : gestion de rendez-vous et suivi médical, projet de soutenance</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- COLONNE LATÉRALE -->
+    <div class="col-side">
+
+      <div class="side-sec">
+        <div class="side-title">Compétences</div>
+        <div class="side-sub">Développement</div>
+        <span class="tag">Java</span><span class="tag">Python</span><span class="tag">C#</span><span class="tag">PHP / Laravel</span><span class="tag">JavaScript</span><span class="tag">HTML / CSS</span><span class="tag">Flutter</span>
+        <div class="side-sub">Données et SI</div>
+        <span class="tag">SQL</span><span class="tag">MySQL</span><span class="tag">SQL Server</span><span class="tag">UML / Merise</span><span class="tag">Power BI</span><span class="tag">Excel</span>
+        <div class="side-sub">Gestion</div>
+        <span class="tag">Comptabilité</span><span class="tag">Facturation</span><span class="tag">Gestion de projet</span><span class="tag">Analyse financière</span>
+        <div class="side-sub">Outils</div>
+        <span class="tag">Git / GitHub</span><span class="tag">Figma</span><span class="tag">Visual Studio</span><span class="tag">Pack Office</span>
+      </div>
+
+      <div class="side-sec">
+        <div class="side-title">Langues</div>
+        <div class="lang"><span>Français</span><span class="lang-lv">Langue d'études</span></div>
+        <div class="lang"><span>Wolof</span><span class="lang-lv">Langue maternelle</span></div>
+        <div class="lang"><span>Anglais</span><span class="lang-lv">Intermédiaire</span></div>
+      </div>
+
+      <div class="side-sec">
+        <div class="side-title">Qualités</div>
+        <span class="tag">Rigueur</span><span class="tag">Organisation</span><span class="tag">Travail en équipe</span><span class="tag">Respect des délais</span><span class="tag">Confidentialité</span>
+      </div>
+
+      <div class="side-sec">
+        <div class="side-title">Engagements</div>
+        <ul class="side-list">
+          <li>Adjointe de la commission féminine, Amicale des étudiants et anciens (AMEA) &ndash; ISI</li>
+          <li>Présidente du gouvernement scolaire &ndash; École Plus</li>
+        </ul>
+      </div>
+
+      <div class="side-sec">
+        <div class="side-title">Centres d'intérêt</div>
+        <span class="tag">Intelligence artificielle</span><span class="tag">Veille technologique</span><span class="tag">Lecture</span><span class="tag">Design</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

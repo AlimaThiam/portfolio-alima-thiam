@@ -392,6 +392,7 @@ img {
 
 .hero-ctas {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
