@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Application GMAO web et mobile">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e3a8a"/>
+      <stop offset="1" stop-color="#0e7490"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="2">
+    <circle cx="690" cy="90" r="140"/>
+    <circle cx="110" cy="440" r="170"/>
+  </g>
+
+  <!-- Écran web (tableau de bord) -->
+  <g transform="translate(130 110)">
+    <rect width="380" height="250" rx="14" fill="#f8fafc"/>
+    <rect width="380" height="34" rx="14" fill="#e2e8f0"/>
+    <rect y="20" width="380" height="14" fill="#e2e8f0"/>
+    <circle cx="20" cy="17" r="5" fill="#f87171"/>
+    <circle cx="38" cy="17" r="5" fill="#fbbf24"/>
+    <circle cx="56" cy="17" r="5" fill="#34d399"/>
+    <rect x="18" y="52" width="104" height="60" rx="8" fill="#dbeafe"/>
+    <rect x="138" y="52" width="104" height="60" rx="8" fill="#cffafe"/>
+    <rect x="258" y="52" width="104" height="60" rx="8" fill="#dcfce7"/>
+    <rect x="30" y="66" width="44" height="8" rx="4" fill="#2563eb"/>
+    <rect x="150" y="66" width="44" height="8" rx="4" fill="#0891b2"/>
+    <rect x="270" y="66" width="44" height="8" rx="4" fill="#16a34a"/>
+    <rect x="30" y="84" width="70" height="14" rx="4" fill="#94a3b8"/>
+    <rect x="150" y="84" width="70" height="14" rx="4" fill="#94a3b8"/>
+    <rect x="270" y="84" width="70" height="14" rx="4" fill="#94a3b8"/>
+    <g fill="#2563eb">
+      <rect x="30" y="196" width="22" height="34" rx="3"/>
+      <rect x="62" y="172" width="22" height="58" rx="3"/>
+      <rect x="94" y="184" width="22" height="46" rx="3"/>
+      <rect x="126" y="150" width="22" height="80" rx="3"/>
+      <rect x="158" y="164" width="22" height="66" rx="3"/>
+    </g>
+    <g fill="#cbd5e1">
+      <rect x="206" y="138" width="156" height="12" rx="6"/>
+      <rect x="206" y="162" width="130" height="12" rx="6"/>
+      <rect x="206" y="186" width="146" height="12" rx="6"/>
+      <rect x="206" y="210" width="110" height="12" rx="6"/>
+    </g>
+  </g>
+
+  <!-- Téléphone -->
+  <g transform="translate(470 150)">
+    <rect width="150" height="280" rx="24" fill="#0f172a"/>
+    <rect x="10" y="14" width="130" height="252" rx="16" fill="#f8fafc"/>
+    <rect x="55" y="22" width="40" height="6" rx="3" fill="#cbd5e1"/>
+    <rect x="22" y="42" width="106" height="44" rx="8" fill="#2563eb"/>
+    <rect x="32" y="54" width="60" height="8" rx="4" fill="#ffffff" fill-opacity="0.85"/>
+    <rect x="32" y="68" width="40" height="8" rx="4" fill="#ffffff" fill-opacity="0.55"/>
+    <g>
+      <rect x="22" y="98" width="106" height="36" rx="8" fill="#e2e8f0"/>
+      <circle cx="40" cy="116" r="8" fill="#16a34a"/>
+      <rect x="56" y="110" width="60" height="6" rx="3" fill="#64748b"/>
+      <rect x="56" y="120" width="40" height="6" rx="3" fill="#94a3b8"/>
+      <rect x="22" y="142" width="106" height="36" rx="8" fill="#e2e8f0"/>
+      <circle cx="40" cy="160" r="8" fill="#f59e0b"/>
+      <rect x="56" y="154" width="60" height="6" rx="3" fill="#64748b"/>
+      <rect x="56" y="164" width="40" height="6" rx="3" fill="#94a3b8"/>
+      <rect x="22" y="186" width="106" height="36" rx="8" fill="#e2e8f0"/>
+      <circle cx="40" cy="204" r="8" fill="#ef4444"/>
+      <rect x="56" y="198" width="60" height="6" rx="3" fill="#64748b"/>
+      <rect x="56" y="208" width="40" height="6" rx="3" fill="#94a3b8"/>
+    </g>
+  </g>
+
+  <!-- Clé de maintenance -->
+  <g transform="translate(640 120) rotate(40)">
+    <circle r="36" fill="#fbbf24"/>
+    <circle r="15" fill="#0e7490"/>
+    <rect x="-11" y="-80" width="22" height="50" fill="#0e7490"/>
+    <rect x="-11" y="28" width="22" height="90" rx="10" fill="#fbbf24"/>
+  </g>
+
+  <text x="130" y="72" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700" fill="#ffffff">GMAO · Web &amp; Mobile</text>
+  <text x="130" y="460" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#ffffff" fill-opacity="0.8">Suivi du parc technique — Stage SENELEC 2026</text>
+</svg>

@@ -2,53 +2,20 @@
    DONNÉES DES PROJETS (POUR LES MODALES DETRAIL)
    ========================================================================== */
 const projectsData = {
-    "1": {
-        title: "E-Stock Manager",
-        tag: "PHP / Laravel / MySQL",
-        image: "assets/project1.jpg",
-        description: "Une application web robuste de gestion des stocks et de facturation conçue pour automatiser les flux d'approvisionnement d'une PME. Ce système résout les problèmes de surstockage et de rupture en offrant un suivi en temps réel des articles, des fournisseurs et des commandes clients.",
+    "gmao": {
+        title: "Application GMAO – SENELEC",
+        tag: "Flutter / Laravel / MySQL",
+        image: "assets/gmao_senelec.svg",
+        description: "Application web et mobile de GMAO (Gestion de la Maintenance Assistée par Ordinateur) développée en équipe lors de mon stage à la SENELEC (juin – septembre 2026), pour le suivi du parc technique. Le code source appartient à l'entreprise et n'est donc pas public.",
         features: [
-            "Authentification sécurisée avec rôles utilisateurs (Administrateur, Gestionnaire de stock)",
-            "Tableau de bord de suivi du niveau de stock en temps réel avec indicateurs visuels",
-            "Alertes automatiques par e-mail en cas de dépassement du seuil critique de réapprovisionnement",
-            "Génération dynamique et téléchargement de factures et de bons de commande au format PDF",
-            "Module de recherche avancée et de filtrage multicritère des articles"
+            "Développement d'une application mobile et web de suivi du parc technique",
+            "Conception des interfaces mobiles (UI/UX) et développement des modules fonctionnels",
+            "Travail en équipe agile : conception, développement et tests",
+            "Respect des délais et des procédures de gestion de projet de l'entreprise"
         ],
-        techs: ["PHP", "Laravel", "MySQL", "Bootstrap", "Composer", "Git"],
-        demoLink: "#",
-        repoLink: "https://github.com/AlimaThiam"
-    },
-    "2": {
-        title: "PortalRH",
-        tag: "C# / .NET Core / SQL Server",
-        image: "assets/project2.jpg",
-        description: "Un portail d'entreprise collaboratif destiné aux services des ressources humaines. Il simplifie la gestion des demandes de congés et le remboursement des notes de frais. L'application intègre un workflow de validation hiérarchique avec notifications par e-mail.",
-        features: [
-            "Formulaire de demande de congés avec calcul automatique et déduction du solde restant",
-            "Dépôt de notes de frais en ligne avec possibilité de joindre des justificatifs (fichiers ou images)",
-            "Workflow de validation à double niveau (Manager puis Responsable RH)",
-            "Vue calendrier d'équipe partagée pour planifier les absences et éviter les conflits d'effectifs",
-            "Export des états récapitulatifs pour l'intégration directe en comptabilité/paie"
-        ],
-        techs: ["C#", ".NET Core 8", "Entity Framework", "SQL Server", "HTML5/CSS3", "JavaScript"],
-        demoLink: "#",
-        repoLink: "https://github.com/AlimaThiam"
-    },
-    "3": {
-        title: "Sales Analytics Dashboard",
-        tag: "Power BI / SQL Server / DAX",
-        image: "assets/project3.jpg",
-        description: "Un projet complet de Business Intelligence (BI) visant à consolider et analyser les performances commerciales d'une entreprise multi-site. De la modélisation de la base de données relationnelle SQL Server au reporting interactif sous Power BI, cette solution guide les décisions stratégiques.",
-        features: [
-            "Conception d'un schéma en étoile (tables de faits et de dimensions) optimisé pour l'analyse",
-            "Processus ETL (Extract-Transform-Load) pour nettoyer et structurer les données de vente brutes",
-            "Écriture de mesures complexes en langage DAX pour calculer le chiffre d'affaires, la marge et les prévisions",
-            "Création de visuels interactifs : cartes géographiques des ventes, évolution temporelle du CA, top vendeurs",
-            "Filtres dynamiques par période (année, trimestre, mois), région et gamme de produits"
-        ],
-        techs: ["Power BI", "SQL Server", "DAX", "T-SQL", "Power Query", "Modélisation en étoile"],
-        demoLink: "#",
-        repoLink: "https://github.com/AlimaThiam"
+        techs: ["Flutter", "Dart", "Laravel", "PHP", "JavaScript / HTML / CSS", "MySQL / SQL Server"],
+        demoLink: "",
+        repoLink: ""
     },
     "4": {
         title: "Valentine Site",
@@ -394,10 +361,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Remplissage des boutons d'actions
                 const linksContainer = document.getElementById("modal-project-links");
-                const isRealDemo = data.demoLink !== "#";
                 linksContainer.innerHTML = `
-                    <a href="${data.repoLink}" target="_blank" class="btn btn-secondary"><i class='bx bxl-github'></i> Code Source</a>
-                    <a href="${data.demoLink}" ${isRealDemo ? 'target="_blank"' : 'onclick="alert(\'Ceci est une simulation de démonstration en local.\'); return false;"'} class="btn btn-primary"><i class='bx bx-link-external'></i> Démo Live</a>
+                    ${data.repoLink ? `<a href="${data.repoLink}" target="_blank" rel="noopener" class="btn btn-secondary"><i class='bx bxl-github'></i> Code Source</a>` : ""}
+                    ${data.demoLink ? `<a href="${data.demoLink}" target="_blank" rel="noopener" class="btn btn-primary"><i class='bx bx-link-external'></i> Démo Live</a>` : ""}
                 `;
 
                 // Ouverture de la modale
