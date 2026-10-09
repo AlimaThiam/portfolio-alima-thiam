@@ -1277,3 +1277,27 @@ img {
         justify-content: center;
     }
 }
+
+/* Qualités (soft skills) présentées en étiquettes */
+.soft-skills-title {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 28px 0 14px;
+    color: var(--text-primary);
+}
+
+.soft-skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.soft-skill-tag {
+    border: 1px solid var(--accent-primary);
+    color: var(--accent-primary);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}

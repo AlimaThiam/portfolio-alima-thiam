@@ -10,7 +10,10 @@
     <meta property="og:title" content="Alima Thiam | Portfolio Informatique de Gestion">
     <meta property="og:description" content="Portfolio professionnel de Alima Thiam. Double diplômée en IAGE et Développement Web & Mobile.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="assets/profile.jpg">
+    <meta property="og:url" content="https://alimathiam.github.io/portfolio-alima-thiam/">
+    <meta property="og:image" content="https://alimathiam.github.io/portfolio-alima-thiam/assets/profile.jpg">
+    <meta property="og:locale" content="fr_FR">
+    <meta name="twitter:card" content="summary">
     
     <!-- Polices Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -104,7 +107,7 @@
                     <div class="personal-details">
                         <div class="detail-item">
                             <span class="detail-label">Recherche :</span>
-                            <span class="detail-val">Stage / Consultance / Emploi</span>
+                            <span class="detail-val">Emploi / Mission / Consultance</span>
                         </div>
                         <div class="detail-item">
                             <span class="detail-label">Disponibilité :</span>
@@ -112,7 +115,7 @@
                         </div>
                         <div class="detail-item">
                             <span class="detail-label">Localisation :</span>
-                            <span class="detail-val">Keur Massar / Tivaouane Peulh, Sénégal (Télétravail accepté)</span>
+                            <span class="detail-val">Tivaouane Peulh, Dakar – Sénégal (Télétravail accepté)</span>
                         </div>
                     </div>
                     
@@ -354,19 +357,15 @@
                             <span class="skill-name">IDEs (Visual Studio, VS Code)</span>
                             <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
                         </li>
-                        <li>
-                            <span class="skill-name">Rigueur & Organisation</span>
-                            <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
-                        </li>
-                        <li>
-                            <span class="skill-name">Travail en équipe / Agilité</span>
-                            <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
-                        </li>
-                        <li>
-                            <span class="skill-name">Sens du service public / Confidentialité</span>
-                            <div class="skill-bar"><div class="skill-progress" style="width: 100%"></div></div>
-                        </li>
                     </ul>
+                    <h4 class="soft-skills-title">Qualités</h4>
+                    <div class="soft-skills-tags">
+                        <span class="soft-skill-tag">Rigueur & Organisation</span>
+                        <span class="soft-skill-tag">Travail en équipe / Agilité</span>
+                        <span class="soft-skill-tag">Sens du service</span>
+                        <span class="soft-skill-tag">Confidentialité</span>
+                        <span class="soft-skill-tag">Autonomie</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -381,107 +380,30 @@
             <!-- Boutons de filtrage -->
             <div class="project-filters">
                 <button class="filter-btn active" data-filter="all">Tous</button>
-                <button class="filter-btn" data-filter="dev">Développement</button>
-                <button class="filter-btn" data-filter="data">Données & BI</button>
+                <button class="filter-btn" data-filter="gestion">Applications de gestion</button>
+                <button class="filter-btn" data-filter="web">Sites web</button>
             </div>
             
             <!-- Grille de Projets -->
             <div class="projects-grid">
                 
-                <!-- Projet 1 -->
-                <div class="project-card" data-category="dev" data-project-id="1">
+                <div class="project-card" data-category="gestion" data-project-id="gmao">
                     <div class="project-img-container">
-                        <img src="assets/project1.jpg" alt="E-Stock Manager" class="project-img">
+                        <img src="assets/gmao_senelec.svg" alt="Application GMAO SENELEC" class="project-img" loading="lazy">
                         <div class="project-overlay">
                             <span class="view-details-btn">Voir les détails <i class='bx bx-plus-circle'></i></span>
                         </div>
                     </div>
                     <div class="project-info">
-                        <span class="project-tag">PHP / Laravel / MySQL</span>
-                        <h3>E-Stock Manager</h3>
-                        <p>Application web de gestion d'inventaire, facturation et suivi de commandes fournisseurs pour une PME...</p>
+                        <span class="project-tag">Flutter / Laravel / MySQL</span>
+                        <h3>Application GMAO – SENELEC</h3>
+                        <p>Application web et mobile de gestion de la maintenance du parc technique, réalisée en équipe pendant mon stage...</p>
                     </div>
                 </div>
                 
-                <!-- Projet 2 -->
-                <div class="project-card" data-category="dev" data-project-id="2">
+                <div class="project-card" data-category="gestion" data-project-id="7">
                     <div class="project-img-container">
-                        <img src="assets/project2.jpg" alt="PortalRH" class="project-img">
-                        <div class="project-overlay">
-                            <span class="view-details-btn">Voir les détails <i class='bx bx-plus-circle'></i></span>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-tag">C# / .NET Core / SQL Server</span>
-                        <h3>PortalRH</h3>
-                        <p>Portail collaboratif RH de demande de congés et suivi de notes de frais avec workflow de validation...</p>
-                    </div>
-                </div>
-                
-                <!-- Projet 3 -->
-                <div class="project-card" data-category="data" data-project-id="3">
-                    <div class="project-img-container">
-                        <img src="assets/project3.jpg" alt="Dashboard BI Ventes" class="project-img">
-                        <div class="project-overlay">
-                            <span class="view-details-btn">Voir les détails <i class='bx bx-plus-circle'></i></span>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-tag">Power BI / SQL Server / DAX</span>
-                        <h3>Sales Analytics Dashboard</h3>
-                        <p>Tableau de bord BI de suivi de ventes, revenus et prévisions régionales à partir de bases relationnelles...</p>
-                    </div>
-                </div>
-                
-                <!-- Projet 4 -->
-                <div class="project-card" data-category="dev" data-project-id="4">
-                    <div class="project-img-container">
-                        <img src="assets/valentine_site.jpg" alt="Valentine Site" class="project-img">
-                        <div class="project-overlay">
-                            <span class="view-details-btn">Voir les détails <i class='bx bx-plus-circle'></i></span>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-tag">HTML5 / CSS3 / JavaScript</span>
-                        <h3>Valentine Site</h3>
-                        <p>Un site internet interactif et romantique créé spécialement pour la Saint-Valentin avec animations CSS...</p>
-                    </div>
-                </div>
-                
-                <!-- Projet 5 -->
-                <div class="project-card" data-category="dev" data-project-id="5">
-                    <div class="project-img-container">
-                        <img src="assets/neenawaw.jpg" alt="Neenawaw" class="project-img" style="object-position: top;">
-                        <div class="project-overlay">
-                            <span class="view-details-btn">Voir les détails <i class='bx bx-plus-circle'></i></span>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-tag">HTML5 / CSS3 / JavaScript</span>
-                        <h3>Neenawaw</h3>
-                        <p>Site de storytelling interactif pour une demande en mariage, avec compte à rebours et carte de localisation...</p>
-                    </div>
-                </div>
-                
-                <!-- Projet 6 -->
-                <div class="project-card" data-category="dev" data-project-id="6">
-                    <div class="project-img-container">
-                        <img src="assets/portfolio_site.png" alt="Portfolio Personnel" class="project-img">
-                        <div class="project-overlay">
-                            <span class="view-details-btn">Voir les détails <i class='bx bx-plus-circle'></i></span>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-tag">HTML5 / CSS3 / JavaScript</span>
-                        <h3>Portfolio Personnel</h3>
-                        <p>Conception et développement de ce portfolio professionnel complet intégrant un mode sombre dynamique...</p>
-                    </div>
-                </div>
-                
-                <!-- Projet 7 -->
-                <div class="project-card" data-category="dev" data-project-id="7">
-                    <div class="project-img-container">
-                        <img src="assets/yaram_jangat.png" alt="Yaram Jangat" class="project-img" style="object-position: center;">
+                        <img src="assets/yaram_jangat.png" alt="Yaram Jangat" class="project-img" loading="lazy" style="object-position: center;">
                         <div class="project-overlay">
                             <span class="view-details-btn">Voir les détails <i class='bx bx-plus-circle'></i></span>
                         </div>
@@ -493,10 +415,9 @@
                     </div>
                 </div>
                 
-                <!-- Projet 8 -->
-                <div class="project-card" data-category="dev" data-project-id="8">
+                <div class="project-card" data-category="gestion" data-project-id="8">
                     <div class="project-img-container">
-                        <img src="assets/ges_school.jpg" alt="GesSchool" class="project-img" style="object-position: center;">
+                        <img src="assets/ges_school.jpg" alt="GesSchool" class="project-img" loading="lazy" style="object-position: center;">
                         <div class="project-overlay">
                             <span class="view-details-btn">Voir les détails <i class='bx bx-plus-circle'></i></span>
                         </div>
@@ -508,10 +429,9 @@
                     </div>
                 </div>
                 
-                <!-- Projet 9 -->
-                <div class="project-card" data-category="dev" data-project-id="9">
+                <div class="project-card" data-category="gestion" data-project-id="9">
                     <div class="project-img-container">
-                        <img src="assets/gestion_ventes.jpg" alt="Gestion des Ventes" class="project-img" style="object-position: center;">
+                        <img src="assets/gestion_ventes.jpg" alt="Gestion des Ventes" class="project-img" loading="lazy" style="object-position: center;">
                         <div class="project-overlay">
                             <span class="view-details-btn">Voir les détails <i class='bx bx-plus-circle'></i></span>
                         </div>
@@ -523,10 +443,9 @@
                     </div>
                 </div>
                 
-                <!-- Projet 10 -->
-                <div class="project-card" data-category="dev" data-project-id="10">
+                <div class="project-card" data-category="gestion" data-project-id="10">
                     <div class="project-img-container">
-                        <img src="assets/mdi_parent_mysql.jpg" alt="MDIParent MySQL" class="project-img" style="object-position: center;">
+                        <img src="assets/mdi_parent_mysql.jpg" alt="MDIParent MySQL" class="project-img" loading="lazy" style="object-position: center;">
                         <div class="project-overlay">
                             <span class="view-details-btn">Voir les détails <i class='bx bx-plus-circle'></i></span>
                         </div>
@@ -538,10 +457,9 @@
                     </div>
                 </div>
                 
-                <!-- Projet 11 -->
-                <div class="project-card" data-category="dev" data-project-id="11">
+                <div class="project-card" data-category="gestion" data-project-id="11">
                     <div class="project-img-container">
-                        <img src="assets/crud_scolaire.jpg" alt="CRUD Scolaire" class="project-img" style="object-position: center;">
+                        <img src="assets/crud_scolaire.jpg" alt="CRUD Scolaire" class="project-img" loading="lazy" style="object-position: center;">
                         <div class="project-overlay">
                             <span class="view-details-btn">Voir les détails <i class='bx bx-plus-circle'></i></span>
                         </div>
@@ -550,6 +468,48 @@
                         <span class="project-tag">C# / Windows Forms / SQL Server</span>
                         <h3>CRUD Scolaire</h3>
                         <p>Un projet d'application de gestion d'étudiants implémentant les opérations fondamentales de CRUD...</p>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="web" data-project-id="6">
+                    <div class="project-img-container">
+                        <img src="assets/portfolio_site.png" alt="Portfolio Personnel" class="project-img" loading="lazy">
+                        <div class="project-overlay">
+                            <span class="view-details-btn">Voir les détails <i class='bx bx-plus-circle'></i></span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-tag">HTML5 / CSS3 / JavaScript</span>
+                        <h3>Portfolio Personnel</h3>
+                        <p>Conception et développement de ce portfolio professionnel complet intégrant un mode sombre dynamique...</p>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="web" data-project-id="4">
+                    <div class="project-img-container">
+                        <img src="assets/valentine_site.jpg" alt="Valentine Site" class="project-img" loading="lazy">
+                        <div class="project-overlay">
+                            <span class="view-details-btn">Voir les détails <i class='bx bx-plus-circle'></i></span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-tag">HTML5 / CSS3 / JavaScript</span>
+                        <h3>Valentine Site</h3>
+                        <p>Un site internet interactif et romantique créé spécialement pour la Saint-Valentin avec animations CSS...</p>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="web" data-project-id="5">
+                    <div class="project-img-container">
+                        <img src="assets/neenawaw.jpg" alt="Neenawaw" class="project-img" loading="lazy" style="object-position: top;">
+                        <div class="project-overlay">
+                            <span class="view-details-btn">Voir les détails <i class='bx bx-plus-circle'></i></span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-tag">HTML5 / CSS3 / JavaScript</span>
+                        <h3>Neenawaw</h3>
+                        <p>Site de storytelling interactif pour une demande en mariage, avec compte à rebours et carte de localisation...</p>
                     </div>
                 </div>
                 
@@ -589,14 +549,14 @@
                             <i class='bx bx-map'></i>
                             <div>
                                 <h4>Localisation</h4>
-                                <p>Keur Massar / Tivaouane Peulh (Télétravail accepté)</p>
+                                <p>Tivaouane Peulh, Dakar (Télétravail accepté)</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="social-links">
-                        <a href="https://github.com/AlimaThiam" target="_blank" aria-label="GitHub"><i class='bx bxl-github'></i></a>
-                        <a href="https://www.linkedin.com/in/alima-thiam-11053b235" target="_blank" aria-label="LinkedIn"><i class='bx bxl-linkedin-square'></i></a>
+                        <a href="https://github.com/AlimaThiam" target="_blank" rel="noopener" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                        <a href="https://www.linkedin.com/in/alima-thiam-11053b235" target="_blank" rel="noopener" aria-label="LinkedIn"><i class='bx bxl-linkedin-square'></i></a>
                     </div>
                 </div>
                 
