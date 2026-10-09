@@ -32,75 +32,75 @@ body { font-family:'Outfit',sans-serif; background:#f0f0f0; color:#222; font-siz
 
 /* HEADER */
 .cv-header {
-  padding:18px 28px 12px;
+  padding:22px 30px 14px;
   border-bottom:2.5px solid #4b47b0;
 }
-.cv-header h1 { font-size:23px; font-weight:700; color:#1a1a2e; }
-.cv-header .role { font-size:12.5px; color:#4b47b0; font-weight:600; margin-top:2px; }
+.cv-header h1 { font-size:26px; font-weight:700; color:#1a1a2e; }
+.cv-header .role { font-size:12.8px; color:#4b47b0; font-weight:600; margin-top:3px; }
 .cv-header .contacts {
   display:flex; flex-wrap:wrap; gap:12px;
-  margin-top:8px; font-size:11px; color:#555;
+  margin-top:9px; font-size:11px; color:#555;
 }
 .cv-header .contacts > * + *::before { content:"·"; margin-right:12px; color:#4b47b0; }
 .cv-header .contacts a { color:#555; text-decoration:none; }
 
 /* BODY */
-.cv-body { display:grid; grid-template-columns:1fr 215px; flex:1; }
-.col-main { padding:13px 20px 12px 28px; }
+.cv-body { display:grid; grid-template-columns:1fr 222px; flex:1; }
+.col-main { padding:17px 22px 14px 30px; }
 .col-side {
-  padding:13px 16px 12px 16px;
+  padding:17px 18px 14px 18px;
   background:#f7f7fb;
   border-left:1px solid #e8e8f0;
 }
 
 /* SECTION */
-.sec { margin-bottom:11px; }
+.sec { margin-bottom:17px; }
 .sec:last-child { margin-bottom:0; }
 .sec-title, .side-title {
-  font-size:9.5px; font-weight:700; text-transform:uppercase;
+  font-size:10.5px; font-weight:700; text-transform:uppercase;
   letter-spacing:1.5px; color:#4b47b0;
   border-bottom:1px solid #dddaf8;
-  padding-bottom:3px; margin-bottom:7px;
+  padding-bottom:4px; margin-bottom:8px;
 }
-.profil { font-size:11px; color:#444; line-height:1.45; }
+.profil { font-size:11.5px; color:#444; line-height:1.5; }
 
 /* ITEMS (formations, expériences, projets) */
-.exp { margin-bottom:7px; }
+.exp { margin-bottom:11px; }
 .exp:last-child { margin-bottom:0; }
 .exp-top { display:flex; justify-content:space-between; align-items:flex-start; gap:6px; }
-.exp-title { font-size:11.5px; font-weight:600; color:#1a1a2e; line-height:1.2; }
+.exp-title { font-size:12px; font-weight:600; color:#1a1a2e; line-height:1.25; }
 .exp-date {
-  font-size:9.5px; color:#4b47b0; font-weight:600;
-  background:#eeeeff; padding:1px 6px; border-radius:12px;
+  font-size:10px; color:#4b47b0; font-weight:600;
+  background:#eeeeff; padding:1px 7px; border-radius:12px;
   white-space:nowrap; flex-shrink:0;
 }
-.exp-co { font-size:10.5px; color:#4b47b0; font-weight:500; margin:1px 0 2px; }
+.exp-co { font-size:11px; color:#4b47b0; font-weight:500; margin:2px 0 3px; }
 .exp-bullets { list-style:none; }
 .exp-bullets li {
-  font-size:10.5px; color:#555; line-height:1.33;
-  padding-left:10px; position:relative;
+  font-size:11px; color:#555; line-height:1.48;
+  padding-left:10px; position:relative; margin-bottom:1px;
 }
 .exp-bullets li::before { content:"-"; position:absolute; left:0; color:#4b47b0; }
 .exp-bullets strong { color:#1a1a2e; font-weight:600; }
 
 /* SIDE */
-.side-sec { margin-bottom:11px; }
+.side-sec { margin-bottom:19px; }
 .side-sec:last-child { margin-bottom:0; }
 .side-sub {
-  font-size:9.5px; font-weight:700; color:#888; margin:7px 0 4px;
+  font-size:10px; font-weight:700; color:#888; margin:10px 0 6px;
   text-transform:uppercase; letter-spacing:1px;
 }
 .side-sub:first-of-type { margin-top:0; }
 .tag {
   display:inline-block; background:#eeeeff; color:#4b47b0;
-  font-size:9.8px; font-weight:500;
-  padding:1px 7px; border-radius:12px;
-  margin:0 3px 4px 0;
+  font-size:10.8px; font-weight:500;
+  padding:2px 8px; border-radius:12px;
+  margin:0 3px 5px 0;
 }
-.lang { display:flex; justify-content:space-between; margin-bottom:3px; font-size:10.5px; }
-.lang-lv { font-size:9.8px; color:#4b47b0; font-weight:600; }
+.lang { display:flex; justify-content:space-between; margin-bottom:5px; font-size:11.5px; }
+.lang-lv { font-size:10.8px; color:#4b47b0; font-weight:600; }
 .side-list { list-style:none; }
-.side-list li { font-size:10.3px; color:#444; line-height:1.35; margin-bottom:4px; padding-left:9px; position:relative; }
+.side-list li { font-size:11.2px; color:#444; line-height:1.4; margin-bottom:6px; padding-left:9px; position:relative; }
 .side-list li::before { content:"-"; position:absolute; left:0; color:#4b47b0; }
 
 .dl-btn { text-align:center; padding:14px 0 10px; }
